@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme inline {
+  --color-background: #0a0e1a;
+  --color-surface: #0d1526;
+  --color-surface-2: #111c35;
+  --color-border: #1e2d4a;
+  --color-text-primary: #f0f4ff;
+  --color-text-secondary: #8a9bc4;
+  --color-accent-blue: #1e6fff;
+  --color-accent-emerald: #10b981;
+  --color-silver: #94a3b8;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #0a0e1a;
+  --foreground: #f0f4ff;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0e1a;
+  color: #f0f4ff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1526;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e6fff;
+}
+
+/* Selection */
+::selection {
+  background: #1e6fff33;
+  color: #f0f4ff;
+}
