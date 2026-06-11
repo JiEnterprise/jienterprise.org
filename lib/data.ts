@@ -9,7 +9,7 @@ export const company = {
   tagline: 'A diversified holding company',
   founder: 'Saswat Ji',
   founderRole: 'Founder & Chairman',
-  email: 'contact@jienterprise.com',
+  email: 'contact@jienterprise.org',
   address: 'Bayside, Queens — New York',
   reach: 'New York to New Delhi',
 };

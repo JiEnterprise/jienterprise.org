@@ -28,7 +28,7 @@ const docs: Record<string, Doc> = {
       {
         heading: '1. Introduction',
         body: [
-          'Ji Enterprise (“Ji Enterprise,” “we,” “us,” or “our”) is committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use, disclose, and protect information about you when you visit jienterprise.com, interact with our digital services, or communicate with us.',
+          'Ji Enterprise (“Ji Enterprise,” “we,” “us,” or “our”) is committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use, disclose, and protect information about you when you visit jienterprise.org, interact with our digital services, or communicate with us.',
           'This policy applies to personal data processed by Ji Enterprise and its operating subsidiaries — Oplo Cloud, AurumGlobal, Ji School, and Ji Civic. Individual products may publish additional, product-specific privacy terms.',
         ],
       },
@@ -72,7 +72,7 @@ const docs: Record<string, Doc> = {
       {
         heading: '6. Contact',
         body: [
-          'For questions about this Privacy Policy, contact privacy@jienterprise.com, or write to Ji Enterprise, Attn: Privacy, Bayside, Queens, New York, United States.',
+          'For questions about this Privacy Policy, contact privacy@jienterprise.org, or write to Ji Enterprise, Attn: Privacy, Bayside, Queens, New York, United States.',
         ],
       },
     ],
@@ -84,7 +84,7 @@ const docs: Record<string, Doc> = {
       {
         heading: '1. Acceptance of Terms',
         body: [
-          'By accessing jienterprise.com and any associated digital properties operated by Ji Enterprise (“we,” “us,” or “our”), you agree to be bound by these Terms of Use. If you do not agree, please do not use our website.',
+          'By accessing jienterprise.org and any associated digital properties operated by Ji Enterprise (“we,” “us,” or “our”), you agree to be bound by these Terms of Use. If you do not agree, please do not use our website.',
         ],
       },
       {
@@ -126,7 +126,7 @@ const docs: Record<string, Doc> = {
       {
         heading: 'What Are Cookies',
         body: [
-          'Cookies are small text files placed on your device when you visit our website. We use them to provide essential functionality, understand usage, and improve your experience on jienterprise.com.',
+          'Cookies are small text files placed on your device when you visit our website. We use them to provide essential functionality, understand usage, and improve your experience on jienterprise.org.',
         ],
       },
       {
@@ -231,8 +231,8 @@ export default async function LegalPage({ params }: Props) {
       <div style={{ marginTop: 48, paddingTop: 28, borderTop: '1px solid var(--line)' }}>
         <p style={{ fontSize: 14, color: 'var(--slate)', marginBottom: 16 }}>
           Questions about our legal documents? Contact{' '}
-          <a href="mailto:legal@jienterprise.com" className="alink sm clay">
-            legal@jienterprise.com
+          <a href="mailto:legal@jienterprise.org" className="alink sm clay">
+            legal@jienterprise.org
           </a>
           .
         </p>

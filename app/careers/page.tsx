@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     'Join Ji Enterprise. Founding roles across technology, financial services, education, and civic infrastructure — New York to New Delhi.',
 };
 
-const CAREERS_EMAIL = 'careers@jienterprise.com';
+const CAREERS_EMAIL = 'careers@jienterprise.org';
 const mailto = (subject?: string) =>
   subject ? `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(subject)}` : `mailto:${CAREERS_EMAIL}`;
 
