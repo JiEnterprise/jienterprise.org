@@ -1402,6 +1402,238 @@ footer {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   Home — statements and doors
+   Centered serif statements carry the beliefs; hairline rows are
+   the doors. One idea per section, minimal copy.
+   ────────────────────────────────────────────────────────────── */
+
+.home-hero {
+  min-height: 96svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 150px 24px 70px;
+}
+.home-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(64px, 10.5vw, 126px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 30px 0 26px;
+}
+.home-hero h1 em {
+  font-style: italic;
+  color: var(--clay);
+}
+.hh-sub {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--slate);
+  max-width: 560px;
+  margin: 0 auto 34px;
+}
+/* scroll cue — a thread of light falling out of the thesis */
+.hh-cue {
+  margin-top: 76px;
+  width: 1px;
+  height: 64px;
+  position: relative;
+  background: var(--line);
+  overflow: hidden;
+}
+.hh-cue::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 1px;
+  height: 40%;
+  background: var(--clay);
+  animation: cue-fall 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes cue-fall {
+  0% {
+    top: -40%;
+  }
+  70%,
+  100% {
+    top: 110%;
+  }
+}
+
+.home-sec {
+  padding: 130px 24px 120px;
+}
+.home-sec.line-top {
+  border-top: 1px solid var(--line);
+}
+.home-sec.band {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.sec-c {
+  text-align: center;
+}
+.sec-c .eyebrow {
+  margin-bottom: 18px;
+}
+.statement {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.6vw, 58px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.statement em {
+  font-style: italic;
+  color: var(--clay);
+}
+.st-sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--slate);
+  max-width: 580px;
+  margin: 22px auto 0;
+}
+.st-caption {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-top: 40px;
+}
+.st-caption a {
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.st-caption a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.sec-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* directory rows — same grammar as the announcement list */
+.dir {
+  border-top: 1px solid var(--line);
+}
+.dir-row {
+  display: grid;
+  grid-template-columns: 250px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 4px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: padding 0.3s ease;
+}
+.dir-row:hover {
+  padding-left: 14px;
+}
+.dir-row:hover .t {
+  color: var(--clay);
+}
+.dir-row:hover .ann-arrow {
+  transform: translateX(4px);
+  color: var(--ink);
+}
+.dir-row .t {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  transition: color 0.25s;
+}
+.dir-row .d {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+
+/* founder — one conviction, centered */
+.founder-sec {
+  background: var(--dark);
+  padding: 150px 24px;
+  text-align: center;
+}
+.fq {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.014em;
+  color: var(--ivory);
+  max-width: 860px;
+  margin: 30px auto 40px;
+}
+.fq-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ivory);
+}
+.fq-role {
+  font-size: 14px;
+  color: rgba(250, 249, 245, 0.45);
+  margin-top: 4px;
+}
+
+@media (max-width: 860px) {
+  .dir-row {
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+  }
+  .dir-row .d {
+    grid-column: 1;
+  }
+  .dir-row .ann-arrow {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 734px) {
+  .home-hero {
+    min-height: 88svh;
+    padding-top: 130px;
+  }
+  .home-hero h1 {
+    font-size: clamp(52px, 15vw, 64px);
+  }
+  .hh-sub {
+    font-size: 17px;
+  }
+  .home-sec {
+    padding: 90px 24px 84px;
+  }
+  .statement {
+    font-size: 34px;
+  }
+  .st-sub {
+    font-size: 16px;
+  }
+  .dir-row .t {
+    font-size: 20px;
+  }
+  .founder-sec {
+    padding: 100px 24px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
    Careers page
    ────────────────────────────────────────────────────────────── */
 
