@@ -47,9 +47,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  const closeMobile = () => setMobileOpen(false);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
@@ -91,12 +89,13 @@ export default function Navigation() {
             <Link
               key={l.href}
               href={l.href}
+              onClick={closeMobile}
               className={clsx('nav-mobile-link', isActive(l.href) && 'active')}
             >
               {l.label}
             </Link>
           ))}
-          <Link href="/contact" className="nav-mobile-link">
+          <Link href="/contact" onClick={closeMobile} className="nav-mobile-link">
             Contact
           </Link>
         </div>

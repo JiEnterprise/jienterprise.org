@@ -8,6 +8,34 @@ const topics = ['Partnership', 'Investment', 'Press & media', 'Careers', 'Genera
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
 
+  // Static site — no form backend. Compose the message in the visitor's own
+  // email client so nothing is silently dropped.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get('name') ?? '');
+    const email = String(fd.get('email') ?? '');
+    const org = String(fd.get('org') ?? '');
+    const topic = String(fd.get('topic') ?? 'General inquiry');
+    const message = String(fd.get('message') ?? '');
+    const subject = `${topic} — ${name}`;
+    const body = [
+      message,
+      '',
+      '—',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      org ? `Organization: ${org}` : null,
+      `Topic: ${topic}`,
+    ]
+      .filter((line): line is string => line !== null)
+      .join('\n');
+    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+  };
+
   return (
     <>
       <section className="page-hero" style={{ paddingBottom: 40 }}>
@@ -36,45 +64,44 @@ export default function ContactPage() {
             {sent ? (
               <div style={{ padding: '40px 0', textAlign: 'center' }}>
                 <h2 style={{ fontFamily: 'var(--serif)', fontSize: 28, fontWeight: 500, marginBottom: 12 }}>
-                  Thank you.
+                  Almost there.
                 </h2>
-                <p style={{ color: 'var(--slate)', fontSize: 16, lineHeight: 1.6 }}>
-                  Your message has reached us. We read every note and reply to the ones we can help
-                  with.
+                <p style={{ color: 'var(--slate)', fontSize: 16, lineHeight: 1.6, maxWidth: 420, margin: '0 auto' }}>
+                  Your email app has opened with the message pre-filled — press send there and it’s
+                  on its way. If nothing opened, write to us directly at{' '}
+                  <a href={`mailto:${company.email}`} className="alink sm clay">
+                    {company.email}
+                  </a>
+                  .
                 </p>
               </div>
             ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                }}
-              >
+              <form onSubmit={handleSubmit}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 18 }}>
                   <div>
                     <label className="field-label" htmlFor="name">
                       Name
                     </label>
-                    <input id="name" className="input" required autoComplete="name" />
+                    <input id="name" name="name" className="input" required autoComplete="name" />
                   </div>
                   <div>
                     <label className="field-label" htmlFor="email">
                       Email
                     </label>
-                    <input id="email" type="email" className="input" required autoComplete="email" />
+                    <input id="email" name="email" type="email" className="input" required autoComplete="email" />
                   </div>
                 </div>
                 <div style={{ marginBottom: 18 }}>
                   <label className="field-label" htmlFor="org">
                     Organization
                   </label>
-                  <input id="org" className="input" autoComplete="organization" />
+                  <input id="org" name="org" className="input" autoComplete="organization" />
                 </div>
                 <div style={{ marginBottom: 18 }}>
                   <label className="field-label" htmlFor="topic">
                     Topic
                   </label>
-                  <select id="topic" className="select" defaultValue={topics[0]}>
+                  <select id="topic" name="topic" className="select" defaultValue={topics[0]}>
                     {topics.map((t) => (
                       <option key={t}>{t}</option>
                     ))}
@@ -84,7 +111,7 @@ export default function ContactPage() {
                   <label className="field-label" htmlFor="message">
                     Message
                   </label>
-                  <textarea id="message" className="textarea" required />
+                  <textarea id="message" name="message" className="textarea" required />
                 </div>
                 <button type="submit" className="pill">
                   Send message

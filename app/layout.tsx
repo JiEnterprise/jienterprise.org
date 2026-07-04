@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jienterprise.org'),
   title: {
     default: 'Ji Enterprise — A diversified holding company',
     template: '%s · Ji Enterprise',

@@ -331,6 +331,47 @@ Designing an education system worthy of an institution means treating learning a
   },
 ];
 
+export interface Announcement {
+  date: string;
+  tag: string;
+  accent: Accent;
+  title: string;
+  /** Internal link the row navigates to. */
+  href: string;
+}
+
+/** Corporate announcements — newest first. Shown on the home page. */
+export const announcements: Announcement[] = [
+  {
+    date: 'Jun 9, 2026',
+    tag: 'Product',
+    accent: 'clay',
+    title: 'OMap enters private testing with the Roxan routing engine',
+    href: '/news/inside-omap',
+  },
+  {
+    date: 'May 28, 2026',
+    tag: 'Launch',
+    accent: 'gold',
+    title: 'PRAMANIK announced — income-verification APIs on India’s Account Aggregator rails',
+    href: '/news/pramanik-credit-layer',
+  },
+  {
+    date: 'May 12, 2026',
+    tag: 'Milestone',
+    accent: 'navy',
+    title: 'AGQUANT completes its first full quarter of fully autonomous trading',
+    href: '/news/autonomous-quant-desk',
+  },
+  {
+    date: 'Apr 30, 2026',
+    tag: 'Careers',
+    accent: 'forest',
+    title: 'Founding cohort opens — five corporate roles across New York and remote',
+    href: '/careers',
+  },
+];
+
 export interface Leader {
   name: string;
   role: string;

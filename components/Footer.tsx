@@ -7,8 +7,9 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
     links: [
       { label: 'About', href: '/about' },
       { label: 'Newsroom', href: '/news' },
-      { label: 'Leadership', href: '/about#leadership' },
       { label: 'Careers', href: '/careers' },
+      { label: 'Responsibility', href: '/sustainability' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
@@ -18,15 +19,7 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
       { label: 'AurumGlobal', href: '/subsidiaries/aurumglobal' },
       { label: 'Ji School', href: '/subsidiaries/ji-school' },
       { label: 'Ji Civic', href: '/subsidiaries/ji-civic' },
-    ],
-  },
-  {
-    title: 'Products',
-    links: [
-      { label: 'OMap', href: '/subsidiaries/oplo-cloud' },
-      { label: 'OMail', href: '/subsidiaries/oplo-cloud' },
-      { label: 'AGQUANT', href: '/subsidiaries/aurumglobal' },
-      { label: 'PRAMANIK', href: '/subsidiaries/aurumglobal' },
+      { label: 'Oplo Labs', href: '/ventures' },
     ],
   },
   {
@@ -75,8 +68,8 @@ export default function Footer() {
           <div className="links">
             <Link href="/legal/privacy-policy">Privacy</Link>
             <Link href="/legal/terms-of-use">Terms</Link>
-            <Link href="/legal/disclaimer">Legal</Link>
-            <Link href="/">Site Map</Link>
+            <Link href="/legal/cookie-policy">Cookies</Link>
+            <Link href="/legal/disclaimer">Disclaimer</Link>
           </div>
           <span>United States · India</span>
         </div>

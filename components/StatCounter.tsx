@@ -26,8 +26,8 @@ export default function StatCounter({ end, suffix = '', label, note }: StatCount
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
-      setDisplay(`${end}${suffix}`);
-      return;
+      const id = requestAnimationFrame(() => setDisplay(`${end}${suffix}`));
+      return () => cancelAnimationFrame(id);
     }
 
     const obs = new IntersectionObserver(

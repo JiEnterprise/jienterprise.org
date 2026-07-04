@@ -3,35 +3,49 @@ import Link from 'next/link';
 import Chevron from '@/components/Chevron';
 import StatCounter from '@/components/StatCounter';
 import StoryCard from '@/components/StoryCard';
-import BusinessCard from '@/components/BusinessCard';
 import {
+  announcements,
   businesses,
-  ventures,
   stories,
   homeStats,
-  principles,
   chairmanLetter,
   leaders,
+  accentHex,
+  type Accent,
 } from '@/lib/data';
+
+const tagTint: Record<Accent, { color: string; bg: string }> = {
+  clay: { color: 'var(--clay)', bg: 'rgba(204,120,92,.1)' },
+  gold: { color: 'var(--gold)', bg: 'rgba(168,133,46,.1)' },
+  navy: { color: 'var(--navy)', bg: 'rgba(44,74,110,.08)' },
+  forest: { color: 'var(--forest)', bg: 'rgba(61,107,79,.1)' },
+};
 
 export default function HomePage() {
   const featured = stories.find((s) => s.featured) ?? stories[0];
   const grid = stories.filter((s) => s.slug !== featured.slug).slice(0, 4);
+  const latest = announcements[0];
   const founder = leaders[0];
 
   return (
     <>
       {/* HERO */}
       <section className="hero" id="top">
-        <p className="eyebrow rv">A diversified holding company</p>
-        <h1 className="rv" style={{ transitionDelay: '.1s' }}>
+        <Link href={latest.href} className="chip rv rise">
+          <span className="dot" />
+          <span>
+            <b>{latest.tag}</b> — {latest.title}
+          </span>
+          <Chevron />
+        </Link>
+        <h1 className="rv rise" style={{ transitionDelay: '.08s' }}>
           Growth, engineered from <em>first principles.</em>
         </h1>
-        <p className="sub rv" style={{ transitionDelay: '.2s' }}>
+        <p className="sub rv rise" style={{ transitionDelay: '.16s' }}>
           Ji Enterprise builds companies across technology, financial services, education, and
           public infrastructure — from New York to New Delhi.
         </p>
-        <div className="hero-cta rv" style={{ transitionDelay: '.3s' }}>
+        <div className="hero-cta rv rise" style={{ transitionDelay: '.24s' }}>
           <Link className="pill" href="/subsidiaries">
             Explore our businesses
           </Link>
@@ -41,17 +55,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="stats" id="scale">
-        <div className="stats-grid">
-          {homeStats.map((s) => (
-            <StatCounter key={s.label} end={s.end} suffix={s.suffix} label={s.label} note={s.note} />
-          ))}
+      {/* ANNOUNCEMENTS */}
+      <section className="wrap ann" id="announcements">
+        <div className="head-row rv">
+          <div>
+            <p className="eyebrow" style={{ marginBottom: 14 }}>
+              Announcements
+            </p>
+            <h2 className="sec-head">The latest, first.</h2>
+          </div>
+          <Link className="alink" href="/news" style={{ fontSize: 15 }}>
+            Visit the newsroom <Chevron />
+          </Link>
+        </div>
+        <div className="ann-list">
+          {announcements.map((a, i) => {
+            const tint = tagTint[a.accent];
+            return (
+              <Link
+                key={a.title}
+                href={a.href}
+                className="ann-row rv"
+                style={{ transitionDelay: `${i * 0.05}s` }}
+              >
+                <span className="ann-meta">
+                  <span className="ann-date">{a.date}</span>
+                  <span className="rtag" style={{ color: tint.color, background: tint.bg }}>
+                    {a.tag}
+                  </span>
+                </span>
+                <p className="ann-title">{a.title}</p>
+                <span className="ann-arrow">
+                  <Chevron />
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      {/* STORIES */}
-      <section className="pad wrap" id="stories">
+      {/* NEWSROOM */}
+      <section className="pad wrap" id="newsroom" style={{ paddingTop: 0 }}>
         <div className="head-row rv">
           <div>
             <p className="eyebrow" style={{ marginBottom: 14 }}>
@@ -83,7 +127,6 @@ export default function HomePage() {
               {featured.category} · {featured.date}
             </p>
             <p>{featured.excerpt}</p>
-            <p>Not a lender. Not a bank. The infrastructure underneath both.</p>
             <span className="alink clay" style={{ fontSize: 15 }}>
               Read the full story <Chevron />
             </span>
@@ -106,7 +149,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CHAIRMAN */}
+      {/* ABOUT THE COMPANY */}
+      <section className="pad wrap" id="about" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="head-row rv">
+          <div>
+            <p className="eyebrow" style={{ marginBottom: 14 }}>
+              About the company
+            </p>
+            <h2 className="sec-head">A company of companies.</h2>
+          </div>
+          <Link className="alink" href="/about" style={{ fontSize: 15 }}>
+            Our story <Chevron />
+          </Link>
+        </div>
+        <p className="about-lead rv">
+          Ji Enterprise is a diversified holding company. Every business in the portfolio was
+          architected internally — its technology, its design language, its market thesis — and
+          each is built to define a category, not merely enter it. Four operating companies, one
+          venture lab, one standard of craft.
+        </p>
+        <div className="mini-grid">
+          {businesses.map((b, i) => (
+            <Link
+              key={b.slug}
+              href={`/subsidiaries/${b.slug}`}
+              className="mini rv"
+              style={
+                {
+                  transitionDelay: `${i * 0.06}s`,
+                  '--mini-accent': accentHex[b.accent],
+                } as React.CSSProperties
+              }
+            >
+              <p className="sector" style={{ color: accentHex[b.accent] }}>
+                {b.sector}
+              </p>
+              <h3>{b.name}</h3>
+              <p>{b.description}</p>
+              <span className="alink sm">
+                Explore <Chevron />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* SCALE */}
+      <section className="stats" id="scale">
+        <div className="stats-grid">
+          {homeStats.map((s) => (
+            <StatCounter key={s.label} end={s.end} suffix={s.suffix} label={s.label} note={s.note} />
+          ))}
+        </div>
+      </section>
+
+      {/* FROM THE FOUNDER */}
       <section className="chairman" id="leadership">
         <div className="chair-grid">
           <div className="rv">
@@ -137,91 +234,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BUSINESSES */}
-      <section className="pad wrap" id="businesses" style={{ paddingTop: 120, paddingBottom: 120 }}>
-        <div className="rv" style={{ textAlign: 'center', marginBottom: 64 }}>
-          <p className="eyebrow" style={{ marginBottom: 14 }}>
-            Our businesses
-          </p>
-          <h2 className="sec-head" style={{ fontSize: 46 }}>
-            Four industries.
-            <br />
-            One operating philosophy.
-          </h2>
-        </div>
-        <div className="g2">
-          {businesses.map((b, i) => (
-            <BusinessCard key={b.slug} biz={b} delay={i % 2 === 1 ? 0.07 : undefined} />
-          ))}
-        </div>
-      </section>
-
-      {/* VENTURES */}
-      <section className="ventures" id="ventures">
+      {/* POLICY & GOVERNANCE */}
+      <section className="policy" id="policy">
         <div className="wrap" style={{ padding: 0 }}>
-          <div className="head-row rv" style={{ marginBottom: 22 }}>
+          <div className="head-row rv">
             <div>
               <p className="eyebrow" style={{ marginBottom: 14 }}>
-                Oplo Labs
+                Policy &amp; governance
               </p>
-              <h2 className="sec-head" style={{ fontSize: 46 }}>
-                The pipeline.
-              </h2>
+              <h2 className="sec-head">Held to it, in writing.</h2>
             </div>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: 'var(--slate)', maxWidth: 380 }}>
-              Six ventures in exploration — each targeting a market everyone can see but no one has
-              owned.
+              How we treat your data, your trust, and our own accountability — the standards every
+              Ji Enterprise company operates under.
             </p>
           </div>
-          <div className="g3" style={{ marginTop: 44 }}>
-            {ventures.map((v, i) => (
-              <div key={v.slug} className="vent rv" style={{ transitionDelay: `${(i % 3) * 0.07}s` }}>
-                <div className="row">
-                  <p className="field">{v.field}</p>
-                  <span className={`stage ${v.stage}`}>{v.stageLabel}</span>
-                </div>
-                <h3>{v.name}</h3>
-                <p className="desc">{v.desc}</p>
-                <p className="signal">{v.signal}</p>
-              </div>
-            ))}
+          <div className="policy-grid">
+            <Link href="/legal/privacy-policy" className="pol rv">
+              <p className="pt">Privacy</p>
+              <h3>Consent-first, by architecture.</h3>
+              <p>
+                Your data moves only with explicit, revocable consent — a property of how we build
+                our systems, not a promise bolted on after.
+              </p>
+              <span className="alink sm">
+                Read the privacy policy <Chevron />
+              </span>
+            </Link>
+            <Link href="/sustainability" className="pol rv" style={{ transitionDelay: '.06s' }}>
+              <p className="pt">Responsibility</p>
+              <h3>Two markets, one bar.</h3>
+              <p>
+                New York and New Delhi get the same standard — and the people the formal system
+                overlooks get designed for first.
+              </p>
+              <span className="alink sm">
+                How we build responsibly <Chevron />
+              </span>
+            </Link>
+            <Link
+              href="/investor-relations#governance"
+              className="pol rv"
+              style={{ transitionDelay: '.12s' }}
+            >
+              <p className="pt">Governance</p>
+              <h3>Founder-led, wholly owned.</h3>
+              <p>
+                Every subsidiary is internally architected and wholly owned, with progress measured
+                in decades — never quarters.
+              </p>
+              <span className="alink sm">
+                Our governance <Chevron />
+              </span>
+            </Link>
+            <Link href="/legal/terms-of-use" className="pol rv" style={{ transitionDelay: '.18s' }}>
+              <p className="pt">Terms</p>
+              <h3>Plain terms, plainly stated.</h3>
+              <p>
+                What you can expect from us — and what we ask of you — across a portfolio of
+                products in active development.
+              </p>
+              <span className="alink sm">
+                Read the terms of use <Chevron />
+              </span>
+            </Link>
           </div>
-          <p className="vent-note rv">
-            Pipeline ventures are early-stage explorations under Oplo Cloud and are evaluated against
-            one bar: can we define the category, not merely enter it.
+          <p className="policy-fine rv">
+            Also on file: <Link href="/legal/cookie-policy">Cookie Policy</Link> ·{' '}
+            <Link href="/legal/disclaimer">Disclaimer</Link>
           </p>
-        </div>
-      </section>
-
-      {/* MISSION */}
-      <section className="mission">
-        <div className="rv" style={{ maxWidth: 760, margin: '0 auto' }}>
-          <p className="eyebrow">Why we exist</p>
-          <h2>
-            We believe the most important companies of the next half-century{' '}
-            <em>haven’t been started yet.</em>
-          </h2>
-          <p>
-            So we start them. Carefully, vertically, and for the long term — across the industries
-            where engineering-first thinking is still rare: navigation, credit, education, and public
-            safety.
-          </p>
-        </div>
-      </section>
-
-      {/* PRINCIPLES */}
-      <section className="pad wrap">
-        <h2 className="sec-head rv" style={{ fontSize: 40, marginBottom: 56 }}>
-          Operating principles.
-        </h2>
-        <div className="prin-grid">
-          {principles.map((p, i) => (
-            <div key={p.num} className="prin rv" style={{ transitionDelay: `${(i % 3) * 0.06}s` }}>
-              <p className="num">{p.num}</p>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-            </div>
-          ))}
         </div>
       </section>
 
