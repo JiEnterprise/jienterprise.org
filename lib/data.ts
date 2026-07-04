@@ -1,7 +1,7 @@
 /* ──────────────────────────────────────────────────────────────
    Ji Enterprise — content model
    A diversified holding company building engineering-first companies
-   across technology, finance, education, and public infrastructure.
+   across technology, finance, education, and government research.
    ────────────────────────────────────────────────────────────── */
 
 export const company = {
@@ -72,7 +72,7 @@ export const businesses: Business[] = [
     stats: [
       { value: '5', label: 'Consumer products' },
       { value: '1', label: 'Shared engine' },
-      { value: '20+', label: 'In development' },
+      { value: '14', label: 'Products across Ji' },
       { value: '2', label: 'Continents' },
     ],
     stories: ['inside-omap'],
@@ -127,105 +127,47 @@ export const businesses: Business[] = [
     stats: [
       { value: '2', label: 'Platforms' },
       { value: '1', label: 'Governance-first model' },
-      { value: '20+', label: 'Products across Ji' },
-      { value: '6', label: 'Operating subsidiaries' },
+      { value: '14', label: 'Products across Ji' },
+      { value: '4', label: 'Operating subsidiaries' },
     ],
     stories: ['education-system-worthy'],
   },
   {
-    slug: 'ji-civic',
-    name: 'Ji Civic',
-    sector: 'Public Infrastructure',
+    slug: 'foxmon-industries',
+    name: 'FoxMon Industries',
+    sector: 'Government & Advanced Research',
     accent: 'navy',
     description:
-      'Dispatch intelligence and field technology for public safety at national scale.',
-    productLine: 'SAMVID · 112 Field App · SENTINEL',
+      'Long-horizon research and frontier technology, built with and for government.',
+    productLine: 'Applied Research · Government Programs · Advanced Systems',
     thesis:
-      'Civic software deserves consumer-grade craft. Ji Civic builds the dispatch intelligence and field technology that public safety runs on — to the same standard as anything we ship to consumers.',
+      'The hardest public problems are research problems first. FoxMon Industries partners with government on long-horizon research and the frontier technology it demands — built to an institutional standard, measured in decades.',
     overview: [
-      'Ji Civic is the public infrastructure arm of Ji Enterprise, building technology for public safety at national scale — the systems that decide how fast help arrives.',
-      'SAMVID is our dispatch intelligence layer. The 112 Field App puts coordinated, real-time tooling in responders’ hands. SENTINEL extends situational awareness across the network.',
-      'Public systems are usually the last to get great software. We start here on purpose — because the people who depend on civic infrastructure deserve the same craft as any consumer product.',
+      'FoxMon Industries is the government and advanced-research arm of Ji Enterprise, working where public missions meet frontier technology.',
+      'The work runs from applied research through advanced systems: long-horizon programs pursued with government partners, carried from first study to working capability under one roof.',
+      'Research at this horizon needs patience the market rarely allows. As part of a holding company that measures progress in decades, FoxMon can commit to problems that outlast any single budget cycle.',
     ],
     products: [
-      { name: 'SAMVID', summary: 'Dispatch intelligence that turns calls into coordinated response.' },
-      { name: '112 Field App', summary: 'Real-time field tooling built for responders, not back offices.' },
-      { name: 'SENTINEL', summary: 'Network-wide situational awareness for public safety operations.' },
+      {
+        name: 'Applied Research',
+        summary: 'Long-horizon research programs pursued to an institutional standard.',
+      },
+      {
+        name: 'Government Programs',
+        summary: 'Partnered work with public agencies, from first study to fielded capability.',
+      },
+      {
+        name: 'Advanced Systems',
+        summary: 'Frontier technology carried from prototype to working systems.',
+      },
     ],
     stats: [
-      { value: '3', label: 'Civic products' },
-      { value: '112', label: 'National emergency line' },
-      { value: '1', label: 'National-scale ambition' },
-      { value: '24/7', label: 'Operating reality' },
+      { value: '3', label: 'Capability areas' },
+      { value: '10+', label: 'Year research horizon' },
+      { value: '2', label: 'Continents' },
+      { value: '1', label: 'Standard of craft' },
     ],
     stories: [],
-  },
-];
-
-export interface Venture {
-  slug: string;
-  name: string;
-  field: string;
-  stage: 'explore' | 'concept' | 'research';
-  stageLabel: string;
-  desc: string;
-  signal: string;
-}
-
-export const ventures: Venture[] = [
-  {
-    slug: 'life-ops',
-    name: 'Life Ops',
-    field: 'Personal orchestration',
-    stage: 'explore',
-    stageLabel: 'In exploration',
-    desc: 'One intelligence layer across a person’s finances, calendar, health, and goals — software that doesn’t just track life, it orchestrates it. The opportunity sits in the cross-domain layer no single app can see.',
-    signal: 'Open banking, HealthKit, and on-device models make this feasible for the first time.',
-  },
-  {
-    slug: 'ledger',
-    name: 'Ledger',
-    field: 'Freelancer finance',
-    stage: 'explore',
-    stageLabel: 'In exploration',
-    desc: 'Purpose-built finance for independent workers — income that arrives from five platforms, taxes estimated in real time, filings handled. More than a budgeting app, less than enterprise accounting.',
-    signal: '70M+ Americans freelance. Regulatory complexity is the moat.',
-  },
-  {
-    slug: 'companion',
-    name: 'Companion',
-    field: 'Senior technology',
-    stage: 'concept',
-    stageLabel: 'Concept',
-    desc: 'A voice-first companion designed for the 65+ smartphone user — scam call protection, medication management, family check-ins. Built for the demographic everyone else ignores.',
-    signal: 'Senior smartphone adoption crossed 75% in 2025. Almost nothing is designed for them.',
-  },
-  {
-    slug: 'signal',
-    name: 'Signal',
-    field: 'Preventive health',
-    stage: 'research',
-    stageLabel: 'Research',
-    desc: 'Health apps show data; Signal interprets it. A pattern engine reading vitals, sleep, and activity to surface trends before they become problems — clinician-grade context, on-device.',
-    signal: 'Health apps carry the highest complaint density of any category. The gap is interpretation.',
-  },
-  {
-    slug: 'passages',
-    name: 'Passages',
-    field: 'Life transitions',
-    stage: 'concept',
-    stageLabel: 'Concept',
-    desc: 'Structured guidance through life’s hardest chapters — grief, divorce, job loss, new parenthood. Every transition has a practical checklist and an emotional weight. Software has never held both.',
-    signal: 'Mental health apps proliferated. Transition-specific support remains absent.',
-  },
-  {
-    slug: 'vault',
-    name: 'Vault',
-    field: 'Document intelligence',
-    stage: 'explore',
-    stageLabel: 'In exploration',
-    desc: 'Everyone has a junk drawer of PDFs — leases, policies, warranties, records. Vault reads them, extracts what matters, and acts: renewal windows, termination clauses, comparison-shopping, deadlines.',
-    signal: 'A universal problem with no credible owner. The data moat compounds with every document.',
   },
 ];
 
@@ -421,7 +363,7 @@ export const principles = [
   {
     num: '05',
     title: 'Two markets, one bar',
-    text: 'New York and New Delhi get the same standard. Civic software deserves consumer-grade craft.',
+    text: 'New York and New Delhi get the same standard. Government work deserves consumer-grade craft.',
   },
   {
     num: '06',
@@ -431,74 +373,9 @@ export const principles = [
 ];
 
 export const homeStats = [
-  { end: 6, suffix: '', label: 'Operating subsidiaries', note: 'Across four industry verticals' },
-  { end: 20, suffix: '+', label: 'Products in development', note: 'Consumer, institutional, and civic' },
+  { end: 4, suffix: '', label: 'Operating subsidiaries', note: 'Across four industry verticals' },
+  { end: 14, suffix: '', label: 'Products in development', note: 'Consumer, institutional, and public' },
   { end: 451, suffix: 'M', label: 'Addressable underserved', note: 'Credit-invisible adults in India' },
   { end: 2, suffix: '', label: 'Continents', note: 'North America and South Asia' },
 ];
 
-export interface Role {
-  id: number;
-  title: string;
-  team: string;
-  location: string;
-  type: string;
-  description: string;
-}
-
-export const roles: Role[] = [
-  {
-    id: 1,
-    title: 'Founding Engineer — Oplo Cloud',
-    team: 'Oplo Cloud',
-    location: 'New York, NY',
-    type: 'Full-time',
-    description:
-      'Own a product surface end to end across the Oplo Cloud suite — from the shared engine to the last pixel. You write specifications before pitch decks and care about seconds saved.',
-  },
-  {
-    id: 2,
-    title: 'Quantitative Engineer — AGQUANT',
-    team: 'AurumGlobal',
-    location: 'New York, NY',
-    type: 'Full-time',
-    description:
-      'Build and harden the autonomous trading desk — strategy execution, risk frameworks, and the kill-switches that make hands-off the safe default.',
-  },
-  {
-    id: 3,
-    title: 'Backend Engineer — PRAMANIK',
-    team: 'AurumGlobal',
-    location: 'New Delhi, India',
-    type: 'Full-time',
-    description:
-      'Build income-verification infrastructure on India’s Account Aggregator framework. Consent-first, institutional-grade, serving the layer every lender depends on.',
-  },
-  {
-    id: 4,
-    title: 'Product Engineer — Ji School',
-    team: 'Ji School',
-    location: 'New Delhi, India',
-    type: 'Full-time',
-    description:
-      'Build institutional learning infrastructure for India scale, where governance and delivery matter as much as the lesson itself.',
-  },
-  {
-    id: 5,
-    title: 'Systems Engineer — Ji Civic',
-    team: 'Ji Civic',
-    location: 'Remote · India',
-    type: 'Full-time',
-    description:
-      'Build dispatch intelligence and field technology for public safety — consumer-grade craft applied to systems that decide how fast help arrives.',
-  },
-  {
-    id: 6,
-    title: 'Design Engineer — Oplo Labs',
-    team: 'Oplo Labs',
-    location: 'New York, NY',
-    type: 'Full-time',
-    description:
-      'Help take pipeline ventures from concept to category. You can define a standard, not merely enter a market.',
-  },
-];

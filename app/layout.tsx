@@ -11,20 +11,19 @@ export const metadata: Metadata = {
     template: '%s · Ji Enterprise',
   },
   description:
-    'Ji Enterprise builds companies across technology, financial services, education, and public infrastructure — from New York to New Delhi.',
+    'Ji Enterprise builds companies across technology, financial services, education, and government research — from New York to New Delhi.',
   keywords: [
     'Ji Enterprise',
     'holding company',
     'Oplo Cloud',
     'AurumGlobal',
     'Ji School',
-    'Ji Civic',
-    'venture builder',
+    'FoxMon Industries',
   ],
   openGraph: {
     title: 'Ji Enterprise — A diversified holding company',
     description:
-      'We don’t enter markets. We build them. Engineering-first companies across technology, finance, education, and public infrastructure.',
+      'We don’t enter markets. We build them. Engineering-first companies across technology, finance, education, and government research.',
     type: 'website',
     locale: 'en_US',
   },

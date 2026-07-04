@@ -39,8 +39,8 @@ export default function AboutPage() {
           </h2>
           <p>
             So we start them. Carefully, vertically, and for the long term — across the industries
-            where engineering-first thinking is still rare: navigation, credit, education, and public
-            safety.
+            where engineering-first thinking is still rare: navigation, credit, education, and
+            public research.
           </p>
         </div>
       </section>

@@ -29,7 +29,7 @@ const docs: Record<string, Doc> = {
         heading: '1. Introduction',
         body: [
           'Ji Enterprise (“Ji Enterprise,” “we,” “us,” or “our”) is committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use, disclose, and protect information about you when you visit jienterprise.org, interact with our digital services, or communicate with us.',
-          'This policy applies to personal data processed by Ji Enterprise and its operating subsidiaries — Oplo Cloud, AurumGlobal, Ji School, and Ji Civic. Individual products may publish additional, product-specific privacy terms.',
+          'This policy applies to personal data processed by Ji Enterprise and its operating subsidiaries — Oplo Cloud, AurumGlobal, Ji School, and FoxMon Industries. Individual products may publish additional, product-specific privacy terms.',
         ],
       },
       {
@@ -102,7 +102,7 @@ const docs: Record<string, Doc> = {
       {
         heading: '4. Products in Development',
         body: [
-          'Many products and ventures described on this site are in active development. Availability, features, and timelines are subject to change, and descriptions of pipeline ventures carry no commitment to launch.',
+          'Many products and programs described on this site are in active development. Availability, features, and timelines are subject to change, and descriptions of early-stage work carry no commitment to launch.',
         ],
       },
       {

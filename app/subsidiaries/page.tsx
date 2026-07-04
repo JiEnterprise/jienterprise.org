@@ -7,7 +7,7 @@ import { businesses } from '@/lib/data';
 export const metadata: Metadata = {
   title: 'Businesses',
   description:
-    'Four operating companies — Oplo Cloud, AurumGlobal, Ji School, and Ji Civic — built from first principles across technology, finance, education, and public infrastructure.',
+    'Four operating companies — Oplo Cloud, AurumGlobal, Ji School, and FoxMon Industries — built from first principles across technology, finance, education, and government research.',
 };
 
 export default function BusinessesPage() {

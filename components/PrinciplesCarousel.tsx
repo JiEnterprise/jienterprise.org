@@ -15,7 +15,7 @@ const PRINCIPLES: [string, string, string][] = [
   ],
   [
     '03',
-    'Craft is the floor, not the ceiling. Civic software and consumer apps ship at the same bar.',
+    'Craft is the floor, not the ceiling. Government research and consumer apps ship at the same bar.',
     'Users can feel the last pixel. So can we.',
   ],
   [

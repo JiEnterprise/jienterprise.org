@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const reports = [
   { title: 'Founder’s Annual Letter', period: '2026', note: 'The thesis, the year, and the decade ahead.' },
   { title: 'Operating Review', period: 'H1 2026', note: 'Progress across the four operating subsidiaries.' },
-  { title: 'Ventures Update', period: 'H1 2026', note: 'The Oplo Labs pipeline and stage movement.' },
+  { title: 'Research Update', period: 'H1 2026', note: 'FoxMon Industries programs and progress.' },
 ];
 
 const governance = [

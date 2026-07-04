@@ -7,7 +7,7 @@ import PrinciplesCarousel from '@/components/PrinciplesCarousel';
 export const metadata: Metadata = {
   title: 'Careers',
   description:
-    'Join Ji Enterprise. Founding roles across technology, financial services, education, and civic infrastructure — New York to New Delhi.',
+    'Join Ji Enterprise. Founding roles across technology, financial services, education, and government research — New York to New Delhi.',
 };
 
 const CAREERS_EMAIL = 'careers@jienterprise.org';
@@ -21,7 +21,7 @@ const beliefs = [
   },
   {
     title: 'Craft is non-negotiable.',
-    text: 'Civic software, fintech APIs, consumer apps — everything ships at the same bar. We sweat the last pixel because users can feel it.',
+    text: 'Government research, fintech APIs, consumer apps — everything ships at the same bar. We sweat the last pixel because users can feel it.',
   },
   {
     title: 'Speed is a culture.',
@@ -61,7 +61,7 @@ const roles = [
   {
     title: 'Brand & Communications Designer',
     org: 'Corporate',
-    detail: 'One design language across six companies — web, decks, research, and identity',
+    detail: 'One design language across five companies — web, decks, research, and identity',
     loc: 'Remote',
     accent: 'navy',
   },
@@ -262,8 +262,9 @@ export default function CareersPage() {
         </div>
 
         <p className="rv" style={{ marginTop: 40, fontSize: 14.5, color: 'var(--faint)', lineHeight: 1.65, maxWidth: 640 }}>
-          Looking to build inside a portfolio company — Oplo Cloud, AurumGlobal, Ji School, or Ji
-          Civic? Each company hires independently and posts roles on its own site as teams form. For
+          Looking to build inside a portfolio company — Oplo Cloud, AurumGlobal, Ji School, or
+          FoxMon Industries? Each company hires independently and posts roles on its own site as
+          teams form. For
           everything else: we hire for slope over pedigree — send what you’ve built to{' '}
           <a href={mailto()} style={{ color: 'var(--clay)' }}>
             {CAREERS_EMAIL}

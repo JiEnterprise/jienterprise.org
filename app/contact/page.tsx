@@ -145,7 +145,7 @@ export default function ContactPage() {
               <div>
                 <p className="field-label">New Delhi</p>
                 <p style={{ fontSize: 15, lineHeight: 1.6, color: 'var(--slate)' }}>
-                  AurumGlobal · Ji School · Ji Civic
+                  AurumGlobal · Ji School
                   <br />
                   India
                 </p>

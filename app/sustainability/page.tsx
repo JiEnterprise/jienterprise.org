@@ -6,7 +6,7 @@ import Chevron from '@/components/Chevron';
 export const metadata: Metadata = {
   title: 'Responsibility',
   description:
-    'How Ji Enterprise thinks about responsibility — long-term ownership, consent-first data, and consumer-grade craft applied to civic systems.',
+    'How Ji Enterprise thinks about responsibility — long-term ownership, consent-first data, and consumer-grade craft applied to public work.',
 };
 
 const pillars = [
@@ -15,8 +15,8 @@ const pillars = [
     text: 'PRAMANIK is built on India’s Account Aggregator framework — data moves only with explicit consent. Privacy is a property of the architecture, not a policy bolted on after.',
   },
   {
-    title: 'Civic-grade accountability',
-    text: 'Ji Civic builds the systems that decide how fast help arrives. We hold public-safety software to the same standard of craft and reliability as anything we ship to consumers.',
+    title: 'Public-mission accountability',
+    text: 'FoxMon Industries works with government on long-horizon research. Work done in the public’s name is held to the same standard of craft and reliability as anything we ship to consumers.',
   },
   {
     title: 'Access as a thesis',
@@ -68,7 +68,7 @@ export default function ResponsibilityPage() {
             Two markets, <em>one bar.</em>
           </h2>
           <p>
-            New York and New Delhi get the same standard. Civic software deserves consumer-grade
+            New York and New Delhi get the same standard. Government work deserves consumer-grade
             craft — and the people the formal system overlooks deserve to be designed for first.
           </p>
         </div>

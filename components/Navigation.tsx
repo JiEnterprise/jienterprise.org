@@ -9,7 +9,6 @@ import clsx from 'clsx';
 const links = [
   { label: 'Stories', href: '/news' },
   { label: 'Businesses', href: '/subsidiaries' },
-  { label: 'Ventures', href: '/ventures' },
   { label: 'Leadership', href: '/about' },
   { label: 'Investors', href: '/investor-relations' },
 ];

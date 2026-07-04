@@ -18,8 +18,7 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
       { label: 'Oplo Cloud', href: '/subsidiaries/oplo-cloud' },
       { label: 'AurumGlobal', href: '/subsidiaries/aurumglobal' },
       { label: 'Ji School', href: '/subsidiaries/ji-school' },
-      { label: 'Ji Civic', href: '/subsidiaries/ji-civic' },
-      { label: 'Oplo Labs', href: '/ventures' },
+      { label: 'FoxMon Industries', href: '/subsidiaries/foxmon-industries' },
     ],
   },
   {

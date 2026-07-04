@@ -46,7 +46,7 @@ export default function HomePage() {
           We build <em>companies.</em>
         </h1>
         <p className="hh-sub rv rise" style={{ transitionDelay: '.2s' }}>
-          Technology, financial services, education, and public infrastructure — built from first
+          Technology, financial services, education, and government research — built from first
           principles, from New York to New Delhi.
         </p>
         <div className="rv rise" style={{ transitionDelay: '.3s' }}>
@@ -147,18 +147,9 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-            <Link href="/ventures" className="dir-row rv" style={{ transitionDelay: '.2s' }}>
-              <span className="t">Oplo Labs</span>
-              <span className="d">Venture pipeline</span>
-              <span className="ann-arrow">
-                <Chevron />
-              </span>
-            </Link>
           </div>
 
-          <p className="st-caption rv">
-            Four operating companies · One venture lab · Two continents
-          </p>
+          <p className="st-caption rv">Four operating companies · Two continents</p>
 
           <div className="sec-link rv">
             <Link className="alink" href="/about">

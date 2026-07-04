@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/news',
     '/subsidiaries',
-    '/ventures',
     '/careers',
     '/investor-relations',
     '/sustainability',

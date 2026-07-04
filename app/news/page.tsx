@@ -8,7 +8,7 @@ import { stories } from '@/lib/data';
 export const metadata: Metadata = {
   title: 'Newsroom',
   description:
-    'Stories from inside the build — across Oplo Cloud, AurumGlobal, Ji School, and Ji Civic.',
+    'Stories from inside the build — across Oplo Cloud, AurumGlobal, Ji School, and FoxMon Industries.',
 };
 
 export default function NewsPage() {
