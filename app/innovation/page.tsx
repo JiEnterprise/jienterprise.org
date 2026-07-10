@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import { RESEARCH } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -33,6 +34,8 @@ export default function InnovationPage() {
           ))}
         </div>
       </section>
+
+      <Explore current="/innovation" />
     </main>
   );
 }

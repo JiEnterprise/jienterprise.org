@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import { CONTACT_EMAIL } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -38,6 +39,8 @@ export default function InvestorsPage() {
           </a>
         </div>
       </section>
+
+      <Explore current="/investors" />
     </main>
   );
 }

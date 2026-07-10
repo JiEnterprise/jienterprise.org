@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import { IMPACT } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -33,6 +34,8 @@ export default function SustainabilityPage() {
           ))}
         </div>
       </section>
+
+      <Explore current="/sustainability" />
     </main>
   );
 }

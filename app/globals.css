@@ -113,6 +113,11 @@ a {
   color: var(--ink);
 }
 
+.nav-link[aria-current='page'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* ── Type roles ────────────────────────────────────────────── */
 
 .eyebrow {
@@ -315,6 +320,11 @@ a {
   color: rgba(255, 255, 255, 0.05);
 }
 
+.section-foot {
+  text-align: center;
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+
 /* ── Numbers row ───────────────────────────────────────────── */
 
 .numbers {
@@ -381,6 +391,22 @@ a {
 }
 
 .card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.card--link {
+  display: block;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card--link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09);
+}
+
+.card--link:hover .card-link {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -484,6 +510,10 @@ a {
 
 .cta--dark .eyebrow {
   color: var(--rose);
+}
+
+.cta--slim {
+  padding-block: clamp(2.75rem, 6vw, 4.25rem);
 }
 
 .button {

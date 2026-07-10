@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import { CHAIRMAN_QUOTE, NUMBERS, PRINCIPLES } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function AboutPage() {
           <cite>Saswat Ji — Founder &amp; Chairman</cite>
         </figure>
       </section>
+
+      <Explore current="/about" />
     </main>
   );
 }

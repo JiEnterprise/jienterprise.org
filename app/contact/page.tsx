@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import { CONTACT_EMAIL } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -73,6 +74,8 @@ export default function ContactPage() {
           ))}
         </div>
       </section>
+
+      <Explore current="/contact" />
     </main>
   );
 }

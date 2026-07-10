@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Explore from '@/components/Explore';
 import Tile from '@/components/Tile';
 import { COMPANIES } from '@/lib/content';
 
@@ -31,6 +32,8 @@ export default function DivisionsPage() {
           ))}
         </div>
       </section>
+
+      <Explore current="/divisions" />
     </main>
   );
 }

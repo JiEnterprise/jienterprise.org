@@ -2,6 +2,27 @@ import Link from 'next/link';
 import Tile from '@/components/Tile';
 import { COMPANIES, NUMBERS } from '@/lib/content';
 
+const DOORWAYS = [
+  {
+    href: '/about',
+    eyebrow: 'About Ji Enterprise',
+    title: 'Who we are',
+    text: 'A parent company that builds, acquires, and operates for the long term.',
+  },
+  {
+    href: '/innovation',
+    eyebrow: 'Innovation & research',
+    title: 'Built in-house',
+    text: 'Engines, trading systems, and infrastructure designed inside the group.',
+  },
+  {
+    href: '/sustainability',
+    eyebrow: 'Sustainability & philanthropy',
+    title: 'Building for the public',
+    text: 'Education access, financial inclusion, and public-interest research.',
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -45,6 +66,11 @@ export default function Home() {
             <Tile company={COMPANIES[3]} half />
           </div>
         </div>
+        <div className="section-foot" data-reveal>
+          <Link className="hero-cue" href="/divisions">
+            Explore the divisions&nbsp;→
+          </Link>
+        </div>
       </section>
 
       <section className="shell section" aria-label="Ji Enterprise by the numbers">
@@ -55,6 +81,45 @@ export default function Home() {
               <div className="number-label">{item.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="shell section" aria-labelledby="group-heading">
+        <div className="section-head">
+          <h2 id="group-heading" data-reveal>
+            Inside the group
+          </h2>
+        </div>
+        <div className="cards">
+          {DOORWAYS.map((door) => (
+            <Link
+              className="card card--link"
+              href={door.href}
+              key={door.href}
+              data-reveal
+            >
+              <span className="eyebrow">{door.eyebrow}</span>
+              <h3 style={{ marginTop: '0.6rem' }}>{door.title}</h3>
+              <p>{door.text}</p>
+              <span className="card-link">Learn more →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="shell section" aria-labelledby="home-investors-heading">
+        <div className="cta cta--dark cta--slim" data-reveal>
+          <span className="eyebrow">Investor relations</span>
+          <h2 id="home-investors-heading" style={{ marginTop: '0.75rem' }}>
+            Privately held
+          </h2>
+          <p className="lede">
+            Ji Enterprise is a private company and does not trade on public
+            markets.
+          </p>
+          <Link className="button" href="/investors">
+            Investor relations
+          </Link>
         </div>
       </section>
 
