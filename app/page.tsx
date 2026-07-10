@@ -1,4 +1,3 @@
-import Clocks from '@/components/Clocks';
 import Kinetics from '@/components/Kinetics';
 
 const HOLDINGS = [
@@ -13,14 +12,14 @@ const HOLDINGS = [
     sector: 'Financial Services',
     name: 'AurumGlobal',
     description:
-      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for the 451 million adults the formal system has never seen.',
+      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for the hundreds of millions the formal system has never seen.',
     products: 'AGQUANT · Terminal · Research · PRAMANIK',
   },
   {
     sector: 'Education',
     name: 'Ji School',
     description:
-      'Institutional learning infrastructure and digital delivery built for India — governance first, apps second.',
+      'Institutional learning infrastructure and digital delivery at national scale — governance first, apps second.',
     products: 'Academy · Tutoring Marketplace',
   },
   {
@@ -43,7 +42,7 @@ const PRINCIPLES = [
   },
   {
     title: 'One bar, everywhere.',
-    text: 'New York and New Delhi get the same standard. Government work gets consumer-grade craft.',
+    text: 'Consumer apps, trading systems, classrooms, or government programs — the same standard of craft.',
   },
 ];
 
@@ -64,7 +63,7 @@ export default function Home() {
 
         <header className="hero">
           <span className="eyebrow" data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
-            A parent company · New York — New Delhi
+            A parent company
           </span>
           <h1 data-rise style={{ '--rise-delay': '120ms' } as React.CSSProperties}>
             We <em>hold</em> companies to a longer clock.
@@ -157,23 +156,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section" aria-labelledby="presence-heading">
-            <span className="mark eyebrow" data-reveal>
-              Presence
-            </span>
-            <div className="section-body">
-              <h2 className="statement" id="presence-heading" data-reveal>
-                Two markets, kept in the same time.
-              </h2>
-              <div style={{ marginTop: '2.25rem' }} data-reveal>
-                <Clocks />
-              </div>
-              <p className="clocks-note prose" data-reveal>
-                Nine and a half hours apart. The same standard.
-              </p>
-            </div>
-          </section>
-
           <section className="section" aria-labelledby="door-heading">
             <span className="mark eyebrow" data-reveal>
               Acquisitions
@@ -206,7 +188,7 @@ export default function Home() {
               contact@jienterprise.org
             </a>
           </span>
-          <span className="eyebrow">© 2026 · New York — New Delhi</span>
+          <span className="eyebrow">© 2026 Ji Enterprise</span>
         </footer>
       </div>
     </>

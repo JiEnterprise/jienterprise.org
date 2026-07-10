@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ji Enterprise — A parent company',
     description:
-      'We hold companies to a longer clock. Technology, finance, education, and public research — from New York to New Delhi.',
+      'We hold companies to a longer clock. Technology, finance, education, and public research.',
     type: 'website',
     locale: 'en_US',
   },

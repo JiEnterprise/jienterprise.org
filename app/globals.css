@@ -297,30 +297,6 @@ a {
   font-style: normal;
 }
 
-/* ── Presence (clocks) ─────────────────────────────────────── */
-
-.clocks {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 4vw, 3rem);
-  max-width: 44rem;
-}
-
-.clock-time {
-  font-family: var(--mono);
-  font-weight: 500;
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-  margin-top: 0.5rem;
-}
-
-.clocks-note {
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  color: var(--graphite);
-}
-
 /* ── Door (acquisitions) ───────────────────────────────────── */
 
 .door-link {
@@ -406,10 +382,6 @@ a {
 
 @media (max-width: 720px) {
   .principles {
-    grid-template-columns: 1fr;
-  }
-
-  .clocks {
     grid-template-columns: 1fr;
   }
 }
