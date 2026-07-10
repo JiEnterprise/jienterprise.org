@@ -40,7 +40,7 @@ const COMPANIES = [
 ];
 
 const NUMBERS = [
-  { value: '4', label: 'Operating companies' },
+  { value: '4', label: 'Operating divisions' },
   { value: '4', label: 'Sectors' },
   { value: '14', label: 'Products in development' },
 ];
@@ -57,6 +57,40 @@ const PRINCIPLES = [
   {
     title: 'One bar, everywhere.',
     text: 'Consumer apps, trading systems, classrooms, or government programs — the same standard of craft.',
+  },
+];
+
+const RESEARCH = [
+  {
+    title: 'Roxan routing engine',
+    text: 'The engine under OMap scores every route for real speed — seconds saved, not theoretical distance.',
+  },
+  {
+    title: 'AGQUANT autonomous desk',
+    text: 'A quantitative trading desk that selects, executes, and risk-manages its strategies with no manual intervention.',
+  },
+  {
+    title: 'PRAMANIK credit infrastructure',
+    text: 'Income-verification APIs that turn consented financial data into the primitive every credit decision begins with.',
+  },
+  {
+    title: 'Long-horizon programs',
+    text: 'FoxMon Industries carries public research from first study to working capability — on a ten-year clock.',
+  },
+];
+
+const IMPACT = [
+  {
+    title: 'Access to education',
+    text: 'Ji School builds governed learning infrastructure so good teaching reliably reaches every student — at national scale.',
+  },
+  {
+    title: 'Financial inclusion',
+    text: 'PRAMANIK extends credit visibility to the hundreds of millions of people the formal financial system has never seen.',
+  },
+  {
+    title: 'Research in the public interest',
+    text: 'FoxMon Industries commits to public problems that outlast any single budget cycle.',
   },
 ];
 
@@ -94,11 +128,20 @@ export default function Home() {
             Ji Enterprise<span className="seal">.</span>
           </a>
           <div className="nav-links">
-            <a className="nav-link nav-link--secondary" href="#companies">
-              Companies
+            <a className="nav-link nav-link--secondary" href="#about">
+              About
             </a>
-            <a className="nav-link nav-link--secondary" href="#principles">
-              How we operate
+            <a className="nav-link nav-link--secondary" href="#divisions">
+              Divisions
+            </a>
+            <a className="nav-link nav-link--secondary" href="#innovation">
+              Innovation
+            </a>
+            <a className="nav-link nav-link--secondary" href="#sustainability">
+              Sustainability
+            </a>
+            <a className="nav-link nav-link--secondary" href="#investors">
+              Investors
             </a>
             <a className="nav-link" href="#contact">
               Contact
@@ -120,28 +163,61 @@ export default function Home() {
           </p>
           <a
             className="hero-cue"
-            href="#companies"
+            href="#about"
             data-rise
             style={{ '--rise-delay': '280ms' } as React.CSSProperties}
           >
-            Explore our companies&nbsp;↓
+            Learn about Ji Enterprise&nbsp;↓
           </a>
         </header>
 
-        <section className="shell section" id="companies" aria-labelledby="companies-heading">
+        {/* ── About ──────────────────────────────────────────── */}
+        <section className="shell section" id="about" aria-labelledby="about-heading">
           <div className="section-head">
             <span className="eyebrow" data-reveal>
-              The companies
+              About Ji Enterprise
             </span>
-            <h2 id="companies-heading" data-reveal>
-              Four companies. One standard.
+            <h2 id="about-heading" data-reveal>
+              A permanent home for ambitious companies.
+            </h2>
+            <p className="lede" data-reveal>
+              We build companies from zero, acquire ones we intend to keep, and
+              operate them all to one standard. No exits, no flips — a parent
+              in the literal sense.
+            </p>
+          </div>
+          <div className="cards">
+            {PRINCIPLES.map((principle) => (
+              <div className="card" key={principle.title} data-reveal>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="numbers" style={{ marginTop: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+            {NUMBERS.map((item) => (
+              <div key={item.label} data-reveal>
+                <div className="number-value">{item.value}</div>
+                <div className="number-label">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Divisions & brands ─────────────────────────────── */}
+        <section className="shell section" id="divisions" aria-labelledby="divisions-heading">
+          <div className="section-head">
+            <span className="eyebrow" data-reveal>
+              Divisions &amp; brands
+            </span>
+            <h2 id="divisions-heading" data-reveal>
+              Four divisions. One standard.
             </h2>
             <p className="lede" data-reveal>
               Every company in the group is held to the same bar — whether it
               serves a commuter, a trading desk, a classroom, or a government.
             </p>
           </div>
-
           <div className="tiles">
             <Tile company={COMPANIES[0]} />
             <Tile company={COMPANIES[1]} />
@@ -152,56 +228,114 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="shell section" aria-label="Ji Enterprise by the numbers">
-          <div className="numbers">
-            {NUMBERS.map((item) => (
-              <div key={item.label} data-reveal>
-                <div className="number-value">{item.value}</div>
-                <div className="number-label">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="shell section" id="principles" aria-labelledby="principles-heading">
+        {/* ── Innovation & research ──────────────────────────── */}
+        <section className="shell section" id="innovation" aria-labelledby="innovation-heading">
           <div className="section-head">
             <span className="eyebrow" data-reveal>
-              How we operate
+              Innovation &amp; research
             </span>
-            <h2 id="principles-heading" data-reveal>
-              Held, not managed.
+            <h2 id="innovation-heading" data-reveal>
+              Built in-house, from zero.
             </h2>
+            <p className="lede" data-reveal>
+              The group runs on proprietary systems designed inside its own
+              walls — engines, desks, and infrastructure no one else ships.
+            </p>
           </div>
-          <div className="cards">
-            {PRINCIPLES.map((principle) => (
-              <div className="card" key={principle.title} data-reveal>
-                <h3>{principle.title}</h3>
-                <p>{principle.text}</p>
+          <div className="cards cards--four">
+            {RESEARCH.map((item) => (
+              <div className="card" key={item.title} data-reveal>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="shell section" aria-label="From the chairman">
-          <figure className="quote" data-reveal>
+        {/* ── Sustainability & philanthropy ──────────────────── */}
+        <section className="shell section" id="sustainability" aria-labelledby="sustainability-heading">
+          <div className="section-head">
+            <span className="eyebrow" data-reveal>
+              Sustainability &amp; philanthropy
+            </span>
+            <h2 id="sustainability-heading" data-reveal>
+              The payoff is public.
+            </h2>
+            <p className="lede" data-reveal>
+              Our giving is structural, not seasonal: the group points its
+              companies at problems whose returns accrue to everyone.
+            </p>
+          </div>
+          <div className="cards">
+            {IMPACT.map((item) => (
+              <div className="card" key={item.title} data-reveal>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Investor relations ─────────────────────────────── */}
+        <section className="shell section" id="investors" aria-labelledby="investors-heading">
+          <div className="cta cta--dark" data-reveal>
+            <span className="eyebrow">Investor relations</span>
+            <h2 id="investors-heading" style={{ marginTop: '0.75rem' }}>
+              Privately held, deliberately.
+            </h2>
+            <p className="lede">
+              Ji Enterprise is a private company and does not trade on public
+              markets. Institutional and partnership inquiries are read by the
+              office of the chairman.
+            </p>
+            <a
+              className="button"
+              href="mailto:contact@jienterprise.org?subject=Investor%20relations"
+            >
+              Contact investor relations
+            </a>
+          </div>
+        </section>
+
+        {/* ── Contact & corporate leadership ─────────────────── */}
+        <section className="shell section" id="contact" aria-labelledby="contact-heading">
+          <div className="section-head">
+            <span className="eyebrow" data-reveal>
+              Contact &amp; corporate leadership
+            </span>
+            <h2 id="contact-heading" data-reveal>
+              Leadership
+            </h2>
+          </div>
+
+          <div className="leader" data-reveal>
+            <div className="leader-avatar" aria-hidden="true">
+              S
+            </div>
+            <div className="leader-name">Saswat Ji</div>
+            <div className="leader-role">Founder &amp; Chairman</div>
+            <p className="leader-bio">
+              Saswat Ji founded Ji Enterprise as a different kind of holding
+              company — one that architects its businesses internally, owns the
+              full stack, and holds what it builds for decades.
+            </p>
+          </div>
+
+          <figure className="quote" data-reveal style={{ marginTop: 'clamp(2.5rem, 6vw, 4rem)' }}>
             <blockquote>
               “Every business we build starts with the same question: what
               would this industry look like if it were designed today, from
               zero, with no legacy to protect?”
             </blockquote>
-            <cite>Saswat Ji — Founder &amp; Chairman</cite>
           </figure>
-        </section>
 
-        <section className="shell section" id="contact" aria-labelledby="contact-heading">
-          <div className="cta" data-reveal>
-            <span className="eyebrow">Acquisitions</span>
-            <h2 id="contact-heading" style={{ marginTop: '0.75rem' }}>
-              Built something that deserves decades?
+          <div className="cta" data-reveal style={{ marginTop: 'clamp(2.5rem, 6vw, 4rem)' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 3.4vw, 2.5rem)' }}>
+              Write to us.
             </h2>
             <p className="lede">
-              We acquire and operate companies we intend to keep. If yours is
-              one of them, write to us.
+              Acquisitions, partnerships, press, or anything that deserves
+              decades — one address, read carefully.
             </p>
             <a className="button" href="mailto:contact@jienterprise.org">
               contact@jienterprise.org

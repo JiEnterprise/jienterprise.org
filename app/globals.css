@@ -344,6 +344,52 @@ a {
   font-size: 1rem;
 }
 
+.cards--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ── Leadership ────────────────────────────────────────────── */
+
+.leader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 40em;
+  margin-inline: auto;
+}
+
+.leader-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  background: var(--claret);
+  color: #fff;
+  font-size: 1.875rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.leader-name {
+  margin-top: 1.1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.leader-role {
+  margin-top: 0.2rem;
+  color: var(--claret);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.leader-bio {
+  margin-top: 1rem;
+  color: var(--gray);
+}
+
 /* ── Quote ─────────────────────────────────────────────────── */
 
 .quote {
@@ -388,6 +434,19 @@ a {
 .cta .lede {
   margin: 1.1rem auto 0;
   max-width: 34em;
+}
+
+.cta--dark {
+  background: var(--tile-dark);
+  color: #fff;
+}
+
+.cta--dark .lede {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cta--dark .eyebrow {
+  color: var(--rose);
 }
 
 .button {
@@ -472,7 +531,8 @@ a {
 
 @media (max-width: 760px) {
   .tile-row,
-  .cards {
+  .cards,
+  .cards--four {
     grid-template-columns: 1fr;
   }
 
