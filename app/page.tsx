@@ -2,6 +2,7 @@ import Kinetics from '@/components/Kinetics';
 
 const COMPANIES = [
   {
+    slug: 'oplo-cloud',
     sector: 'Consumer Technology',
     name: 'Oplo Cloud',
     ghost: 'O',
@@ -11,6 +12,7 @@ const COMPANIES = [
     products: 'OMap · OMail · OSurf · OPay · OShopping',
   },
   {
+    slug: 'aurumglobal',
     sector: 'Financial Services',
     name: 'AurumGlobal',
     ghost: 'A',
@@ -20,6 +22,7 @@ const COMPANIES = [
     products: 'AGQUANT · Terminal · Research · PRAMANIK',
   },
   {
+    slug: 'ji-school',
     sector: 'Education',
     name: 'Ji School',
     ghost: 'J',
@@ -29,6 +32,7 @@ const COMPANIES = [
     products: 'Academy · Tutoring Marketplace',
   },
   {
+    slug: 'foxmon-industries',
     sector: 'Government & Advanced Research',
     name: 'FoxMon Industries',
     ghost: 'F',
@@ -103,6 +107,7 @@ function Tile({
 }) {
   return (
     <article
+      id={company.slug}
       className={`tile${company.dark ? ' tile--dark' : ''}${half ? ' tile--half' : ''}`}
       data-reveal
     >
@@ -122,7 +127,7 @@ export default function Home() {
     <>
       <Kinetics />
 
-      <nav className="nav" data-nav aria-label="Main">
+      <nav className="nav" id="top" data-nav aria-label="Main">
         <div className="shell nav-inner">
           <a className="wordmark" href="/">
             Ji Enterprise<span className="seal">.</span>
@@ -341,15 +346,94 @@ export default function Home() {
         </section>
       </main>
 
-      <div className="shell">
-        <footer className="footer">
-          <span className="wordmark">
-            Ji Enterprise<span className="seal">.</span>
-          </span>
-          <a href="mailto:contact@jienterprise.org">contact@jienterprise.org</a>
-          <span>© 2026 Ji Enterprise</span>
-        </footer>
-      </div>
+      <footer className="footer">
+        <div className="shell">
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <span className="wordmark">
+                Ji Enterprise<span className="seal">.</span>
+              </span>
+              <p className="footer-tagline">
+                A parent company operating businesses across technology,
+                finance, education, and public research.
+              </p>
+            </div>
+
+            <nav className="footer-col" aria-label="Company">
+              <h4 className="footer-heading">Company</h4>
+              <ul className="footer-list">
+                <li>
+                  <a href="#about">About Ji Enterprise</a>
+                </li>
+                <li>
+                  <a href="#divisions">Divisions &amp; brands</a>
+                </li>
+                <li>
+                  <a href="#innovation">Innovation &amp; research</a>
+                </li>
+                <li>
+                  <a href="#sustainability">Sustainability &amp; philanthropy</a>
+                </li>
+                <li>
+                  <a href="#investors">Investor relations</a>
+                </li>
+                <li>
+                  <a href="#contact">Leadership &amp; contact</a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav className="footer-col" aria-label="Divisions">
+              <h4 className="footer-heading">Divisions</h4>
+              <ul className="footer-list">
+                <li>
+                  <a href="#oplo-cloud">Oplo Cloud</a>
+                </li>
+                <li>
+                  <a href="#aurumglobal">AurumGlobal</a>
+                </li>
+                <li>
+                  <a href="#ji-school">Ji School</a>
+                </li>
+                <li>
+                  <a href="#foxmon-industries">FoxMon Industries</a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav className="footer-col" aria-label="Contact">
+              <h4 className="footer-heading">Contact</h4>
+              <ul className="footer-list">
+                <li>
+                  <a href="mailto:contact@jienterprise.org">
+                    General inquiries
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@jienterprise.org?subject=Acquisitions">
+                    Acquisitions
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@jienterprise.org?subject=Investor%20relations">
+                    Investor relations
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@jienterprise.org?subject=Press">
+                    Press
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div className="footer-legal">
+            <span>© 2026 Ji Enterprise. All rights reserved.</span>
+            <a href="#top">Back to top ↑</a>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
