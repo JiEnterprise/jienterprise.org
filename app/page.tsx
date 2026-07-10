@@ -1,9 +1,11 @@
 import Kinetics from '@/components/Kinetics';
 
-const HOLDINGS = [
+const COMPANIES = [
   {
     sector: 'Consumer Technology',
     name: 'Oplo Cloud',
+    ghost: 'O',
+    dark: true,
     description:
       'Navigation, email, browsing, payments, and commerce — five everyday products rebuilt from first principles, on one shared engine.',
     products: 'OMap · OMail · OSurf · OPay · OShopping',
@@ -11,6 +13,8 @@ const HOLDINGS = [
   {
     sector: 'Financial Services',
     name: 'AurumGlobal',
+    ghost: 'A',
+    dark: false,
     description:
       'An autonomous quantitative trading desk, market analytics, and credit infrastructure for the hundreds of millions the formal system has never seen.',
     products: 'AGQUANT · Terminal · Research · PRAMANIK',
@@ -18,6 +22,8 @@ const HOLDINGS = [
   {
     sector: 'Education',
     name: 'Ji School',
+    ghost: 'J',
+    dark: false,
     description:
       'Institutional learning infrastructure and digital delivery at national scale — governance first, apps second.',
     products: 'Academy · Tutoring Marketplace',
@@ -25,10 +31,18 @@ const HOLDINGS = [
   {
     sector: 'Government & Advanced Research',
     name: 'FoxMon Industries',
+    ghost: 'F',
+    dark: true,
     description:
       'Long-horizon research and frontier technology, built with and for government, measured in decades.',
     products: 'Applied Research · Government Programs · Advanced Systems',
   },
+];
+
+const NUMBERS = [
+  { value: '4', label: 'Operating companies' },
+  { value: '4', label: 'Sectors' },
+  { value: '14', label: 'Products in development' },
 ];
 
 const PRINCIPLES = [
@@ -46,149 +60,163 @@ const PRINCIPLES = [
   },
 ];
 
+function Tile({
+  company,
+  half,
+}: {
+  company: (typeof COMPANIES)[number];
+  half?: boolean;
+}) {
+  return (
+    <article
+      className={`tile${company.dark ? ' tile--dark' : ''}${half ? ' tile--half' : ''}`}
+      data-reveal
+    >
+      <span className="tile-ghost" aria-hidden="true">
+        {company.ghost}
+      </span>
+      <span className="eyebrow">{company.sector}</span>
+      <h3 className="tile-name">{company.name}</h3>
+      <p className="tile-desc">{company.description}</p>
+      <p className="tile-products">{company.products}</p>
+    </article>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <Kinetics />
 
-      <div className="shell">
-        <nav className="nav" aria-label="Main">
+      <nav className="nav" data-nav aria-label="Main">
+        <div className="shell nav-inner">
           <a className="wordmark" href="/">
             Ji Enterprise<span className="seal">.</span>
           </a>
-          <a className="nav-link" href="mailto:contact@jienterprise.org">
-            Contact
-          </a>
-        </nav>
+          <div className="nav-links">
+            <a className="nav-link nav-link--secondary" href="#companies">
+              Companies
+            </a>
+            <a className="nav-link nav-link--secondary" href="#principles">
+              How we operate
+            </a>
+            <a className="nav-link" href="#contact">
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
 
-        <header className="hero">
-          <span className="eyebrow" data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
-            A parent company
-          </span>
-          <h1 data-rise style={{ '--rise-delay': '120ms' } as React.CSSProperties}>
-            We <em>hold</em> companies to a longer clock.
+      <main>
+        <header className="shell hero">
+          <h1 data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
+            We hold companies to a{' '}
+            <span className="accent">longer&nbsp;clock</span>.
           </h1>
-          <p className="lede" data-rise style={{ '--rise-delay': '260ms' } as React.CSSProperties}>
-            Ji Enterprise builds, acquires, and operates businesses across
-            technology, finance, education, and public research — then gives
-            them the one thing markets rarely allow: time.
+          <p className="lede" data-rise style={{ '--rise-delay': '140ms' } as React.CSSProperties}>
+            Ji Enterprise is a parent company. We build, acquire, and operate
+            businesses across technology, finance, education, and public
+            research — then give them the one thing markets rarely allow: time.
           </p>
+          <a
+            className="hero-cue"
+            href="#companies"
+            data-rise
+            style={{ '--rise-delay': '280ms' } as React.CSSProperties}
+          >
+            Explore our companies&nbsp;↓
+          </a>
         </header>
 
-        <main className="thread" data-thread>
-          <span className="spine-fill" aria-hidden="true" />
-
-          <span
-            className="mark mark--parent eyebrow"
-            data-rise
-            style={{ '--rise-delay': '420ms' } as React.CSSProperties}
-          >
-            The parent · Ji Enterprise
-          </span>
-
-          <section className="section" aria-labelledby="holdings-heading">
-            <span className="mark eyebrow" data-reveal>
-              The holdings
+        <section className="shell section" id="companies" aria-labelledby="companies-heading">
+          <div className="section-head">
+            <span className="eyebrow" data-reveal>
+              The companies
             </span>
-            <div className="section-body">
-              <h2 className="statement" id="holdings-heading" data-reveal>
-                Four companies. One standard.
-              </h2>
-              <p className="prose" style={{ marginTop: '1.1rem' }} data-reveal>
-                Every company in the group is held to the same bar — whether it
-                serves a commuter, a trading desk, a classroom, or a
-                government.
-              </p>
+            <h2 id="companies-heading" data-reveal>
+              Four companies. One standard.
+            </h2>
+            <p className="lede" data-reveal>
+              Every company in the group is held to the same bar — whether it
+              serves a commuter, a trading desk, a classroom, or a government.
+            </p>
+          </div>
+
+          <div className="tiles">
+            <Tile company={COMPANIES[0]} />
+            <Tile company={COMPANIES[1]} />
+            <div className="tile-row">
+              <Tile company={COMPANIES[2]} half />
+              <Tile company={COMPANIES[3]} half />
             </div>
+          </div>
+        </section>
 
-            {HOLDINGS.map((holding) => (
-              <article className="holding" key={holding.name}>
-                <span className="mark eyebrow" data-reveal>
-                  {holding.sector}
-                </span>
-                <div className="section-body" style={{ paddingTop: 0 }}>
-                  <h3 className="holding-name" data-reveal>
-                    {holding.name}
-                  </h3>
-                  <p className="holding-desc" data-reveal>
-                    {holding.description}
-                  </p>
-                  <p className="holding-products" data-reveal>
-                    {holding.products}
-                  </p>
-                </div>
-              </article>
+        <section className="shell section" aria-label="Ji Enterprise by the numbers">
+          <div className="numbers">
+            {NUMBERS.map((item) => (
+              <div key={item.label} data-reveal>
+                <div className="number-value">{item.value}</div>
+                <div className="number-label">{item.label}</div>
+              </div>
             ))}
-          </section>
+          </div>
+        </section>
 
-          <section className="section" aria-labelledby="operate-heading">
-            <span className="mark eyebrow" data-reveal>
+        <section className="shell section" id="principles" aria-labelledby="principles-heading">
+          <div className="section-head">
+            <span className="eyebrow" data-reveal>
               How we operate
             </span>
-            <div className="section-body">
-              <h2 className="statement" id="operate-heading" data-reveal>
-                Held, not managed.
-              </h2>
-              <div className="principles" style={{ marginTop: '2.25rem' }}>
-                {PRINCIPLES.map((principle) => (
-                  <div className="principle" key={principle.title} data-reveal>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.text}</p>
-                  </div>
-                ))}
+            <h2 id="principles-heading" data-reveal>
+              Held, not managed.
+            </h2>
+          </div>
+          <div className="cards">
+            {PRINCIPLES.map((principle) => (
+              <div className="card" key={principle.title} data-reveal>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
+        </section>
 
-          <section className="section letter" aria-label="From the chairman">
-            <span className="mark eyebrow" data-reveal>
-              From the chairman
-            </span>
-            <div className="section-body">
-              <blockquote data-reveal>
-                “Every business we build starts with the same question: what
-                would this industry look like if it were designed today, from
-                zero, with no legacy to protect?”
-              </blockquote>
-              <cite className="eyebrow" data-reveal>
-                Saswat Ji · Founder &amp; Chairman
-              </cite>
-            </div>
-          </section>
+        <section className="shell section" aria-label="From the chairman">
+          <figure className="quote" data-reveal>
+            <blockquote>
+              “Every business we build starts with the same question: what
+              would this industry look like if it were designed today, from
+              zero, with no legacy to protect?”
+            </blockquote>
+            <cite>Saswat Ji — Founder &amp; Chairman</cite>
+          </figure>
+        </section>
 
-          <section className="section" aria-labelledby="door-heading">
-            <span className="mark eyebrow" data-reveal>
-              Acquisitions
-            </span>
-            <div className="section-body">
-              <h2 className="statement" id="door-heading" data-reveal>
-                Built something that deserves decades?
-              </h2>
-              <p className="prose" style={{ marginTop: '1.1rem' }} data-reveal>
-                We acquire and operate companies we intend to keep. If yours is
-                one of them, write to us.
-              </p>
-              <a
-                className="door-link"
-                href="mailto:contact@jienterprise.org"
-                data-reveal
-              >
-                contact@jienterprise.org
-              </a>
-            </div>
-          </section>
-        </main>
+        <section className="shell section" id="contact" aria-labelledby="contact-heading">
+          <div className="cta" data-reveal>
+            <span className="eyebrow">Acquisitions</span>
+            <h2 id="contact-heading" style={{ marginTop: '0.75rem' }}>
+              Built something that deserves decades?
+            </h2>
+            <p className="lede">
+              We acquire and operate companies we intend to keep. If yours is
+              one of them, write to us.
+            </p>
+            <a className="button" href="mailto:contact@jienterprise.org">
+              contact@jienterprise.org
+            </a>
+          </div>
+        </section>
+      </main>
 
+      <div className="shell">
         <footer className="footer">
           <span className="wordmark">
             Ji Enterprise<span className="seal">.</span>
           </span>
-          <span className="eyebrow">
-            <a href="mailto:contact@jienterprise.org">
-              contact@jienterprise.org
-            </a>
-          </span>
-          <span className="eyebrow">© 2026 Ji Enterprise</span>
+          <a href="mailto:contact@jienterprise.org">contact@jienterprise.org</a>
+          <span>© 2026 Ji Enterprise</span>
         </footer>
       </div>
     </>

@@ -1,21 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Besley, Public_Sans, Spline_Sans_Mono } from 'next/font/google';
+import { Figtree } from 'next/font/google';
 import './globals.css';
 
-const display = Besley({
+const sans = Figtree({
   subsets: ['latin'],
-  style: ['normal', 'italic'],
-  variable: '--font-display',
-});
-
-const body = Public_Sans({
-  subsets: ['latin'],
-  variable: '--font-body',
-});
-
-const mono = Spline_Sans_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -36,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#fcfbf9',
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({
@@ -45,10 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
-    >
+    <html lang="en" className={sans.variable}>
       <body>{children}</body>
     </html>
   );
