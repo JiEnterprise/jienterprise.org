@@ -1,32 +1,42 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import { Besley, Public_Sans, Spline_Sans_Mono } from 'next/font/google';
 import './globals.css';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import ScrollReveal from '@/components/ScrollReveal';
+
+const display = Besley({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+});
+
+const body = Public_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+});
+
+const mono = Spline_Sans_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jienterprise.org'),
   title: {
-    default: 'Ji Enterprise — A diversified holding company',
+    default: 'Ji Enterprise — A parent company',
     template: '%s · Ji Enterprise',
   },
   description:
-    'Ji Enterprise builds companies across technology, financial services, education, and government research — from New York to New Delhi.',
-  keywords: [
-    'Ji Enterprise',
-    'holding company',
-    'Oplo Cloud',
-    'AurumGlobal',
-    'Ji School',
-    'FoxMon Industries',
-  ],
+    'Ji Enterprise builds, acquires, and operates companies across technology, finance, education, and public research — and holds them to a longer clock.',
   openGraph: {
-    title: 'Ji Enterprise — A diversified holding company',
+    title: 'Ji Enterprise — A parent company',
     description:
-      'We don’t enter markets. We build them. Engineering-first companies across technology, finance, education, and government research.',
+      'We hold companies to a longer clock. Technology, finance, education, and public research — from New York to New Delhi.',
     type: 'website',
     locale: 'en_US',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#fcfbf9',
 };
 
 export default function RootLayout({
@@ -35,13 +45,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <ScrollReveal />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-      </body>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

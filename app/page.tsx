@@ -1,241 +1,214 @@
-import React from 'react';
-import Link from 'next/link';
-import Chevron from '@/components/Chevron';
-import { announcements, businesses, chairmanLetter, leaders, stories, type Accent } from '@/lib/data';
+import Clocks from '@/components/Clocks';
+import Kinetics from '@/components/Kinetics';
 
-const tagTint: Record<Accent, { color: string; bg: string }> = {
-  clay: { color: 'var(--clay)', bg: 'rgba(204,120,92,.1)' },
-  gold: { color: 'var(--gold)', bg: 'rgba(168,133,46,.1)' },
-  navy: { color: 'var(--navy)', bg: 'rgba(44,74,110,.08)' },
-  forest: { color: 'var(--forest)', bg: 'rgba(61,107,79,.1)' },
-};
-
-const policyDoors = [
+const HOLDINGS = [
   {
-    title: 'Privacy',
-    desc: 'Your data moves only with explicit, revocable consent.',
-    href: '/legal/privacy-policy',
+    sector: 'Consumer Technology',
+    name: 'Oplo Cloud',
+    description:
+      'Navigation, email, browsing, payments, and commerce — five everyday products rebuilt from first principles, on one shared engine.',
+    products: 'OMap · OMail · OSurf · OPay · OShopping',
   },
   {
-    title: 'Terms',
-    desc: 'What you can expect from us, plainly stated.',
-    href: '/legal/terms-of-use',
+    sector: 'Financial Services',
+    name: 'AurumGlobal',
+    description:
+      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for the 451 million adults the formal system has never seen.',
+    products: 'AGQUANT · Terminal · Research · PRAMANIK',
   },
   {
-    title: 'Responsibility',
-    desc: 'New York and New Delhi get the same standard.',
-    href: '/sustainability',
+    sector: 'Education',
+    name: 'Ji School',
+    description:
+      'Institutional learning infrastructure and digital delivery built for India — governance first, apps second.',
+    products: 'Academy · Tutoring Marketplace',
   },
   {
-    title: 'Governance',
-    desc: 'Founder-led, wholly owned, measured in decades.',
-    href: '/investor-relations#governance',
+    sector: 'Government & Advanced Research',
+    name: 'FoxMon Industries',
+    description:
+      'Long-horizon research and frontier technology, built with and for government, measured in decades.',
+    products: 'Applied Research · Government Programs · Advanced Systems',
   },
 ];
 
-export default function HomePage() {
-  const featured = stories.find((s) => s.featured) ?? stories[0];
-  const founder = leaders[0];
+const PRINCIPLES = [
+  {
+    title: 'Own the full stack.',
+    text: 'From routing engines to the last pixel, the core is never outsourced.',
+  },
+  {
+    title: 'Decades, not quarters.',
+    text: 'Progress is measured in industries reshaped, not earnings cycles.',
+  },
+  {
+    title: 'One bar, everywhere.',
+    text: 'New York and New Delhi get the same standard. Government work gets consumer-grade craft.',
+  },
+];
 
+export default function Home() {
   return (
     <>
-      {/* THESIS */}
-      <section className="home-hero" id="top">
-        <p className="eyebrow rv rise">Ji Enterprise — a diversified holding company</p>
-        <h1 className="rv rise" style={{ transitionDelay: '.1s' }}>
-          We build <em>companies.</em>
-        </h1>
-        <p className="hh-sub rv rise" style={{ transitionDelay: '.2s' }}>
-          Technology, financial services, education, and government research — built from first
-          principles, from New York to New Delhi.
-        </p>
-        <div className="rv rise" style={{ transitionDelay: '.3s' }}>
-          <Link className="alink clay" href="/about" style={{ fontSize: 16 }}>
-            About the company <Chevron />
-          </Link>
-        </div>
-        <div className="hh-cue rv rise" style={{ transitionDelay: '.5s' }} aria-hidden="true" />
-      </section>
+      <Kinetics />
 
-      {/* NEWSROOM */}
-      <section className="home-sec line-top" id="newsroom">
-        <div className="wrap">
-          <div className="sec-c rv">
-            <p className="eyebrow">Newsroom</p>
-            <h2 className="statement">The latest, first.</h2>
-          </div>
-          <div className="ann-list rv" style={{ marginTop: 56 }}>
-            {announcements.map((a, i) => {
-              const tint = tagTint[a.accent];
-              return (
-                <Link
-                  key={a.title}
-                  href={a.href}
-                  className="ann-row rv"
-                  style={{ transitionDelay: `${i * 0.05}s` }}
-                >
-                  <span className="ann-meta">
-                    <span className="ann-date">{a.date}</span>
-                    <span className="rtag" style={{ color: tint.color, background: tint.bg }}>
-                      {a.tag}
-                    </span>
-                  </span>
-                  <p className="ann-title">{a.title}</p>
-                  <span className="ann-arrow">
-                    <Chevron />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+      <div className="shell">
+        <nav className="nav" aria-label="Main">
+          <a className="wordmark" href="/">
+            Ji Enterprise<span className="seal">.</span>
+          </a>
+          <a className="nav-link" href="mailto:contact@jienterprise.org">
+            Contact
+          </a>
+        </nav>
 
-          <Link href={`/news/${featured.slug}`} className="feat rv" style={{ marginTop: 44 }}>
-            <div className="feat-visual">
-              <div className="c1" />
-              <div className="c2" />
-              <div className="c3" />
-              <div style={{ position: 'relative' }}>
-                <span className="feat-tag">Featured</span>
-                <h3>{featured.title}</h3>
+        <header className="hero">
+          <span className="eyebrow" data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
+            A parent company · New York — New Delhi
+          </span>
+          <h1 data-rise style={{ '--rise-delay': '120ms' } as React.CSSProperties}>
+            We <em>hold</em> companies to a longer clock.
+          </h1>
+          <p className="lede" data-rise style={{ '--rise-delay': '260ms' } as React.CSSProperties}>
+            Ji Enterprise builds, acquires, and operates businesses across
+            technology, finance, education, and public research — then gives
+            them the one thing markets rarely allow: time.
+          </p>
+        </header>
+
+        <main className="thread" data-thread>
+          <span className="spine-fill" aria-hidden="true" />
+
+          <span
+            className="mark mark--parent eyebrow"
+            data-rise
+            style={{ '--rise-delay': '420ms' } as React.CSSProperties}
+          >
+            The parent · Ji Enterprise
+          </span>
+
+          <section className="section" aria-labelledby="holdings-heading">
+            <span className="mark eyebrow" data-reveal>
+              The holdings
+            </span>
+            <div className="section-body">
+              <h2 className="statement" id="holdings-heading" data-reveal>
+                Four companies. One standard.
+              </h2>
+              <p className="prose" style={{ marginTop: '1.1rem' }} data-reveal>
+                Every company in the group is held to the same bar — whether it
+                serves a commuter, a trading desk, a classroom, or a
+                government.
+              </p>
+            </div>
+
+            {HOLDINGS.map((holding) => (
+              <article className="holding" key={holding.name}>
+                <span className="mark eyebrow" data-reveal>
+                  {holding.sector}
+                </span>
+                <div className="section-body" style={{ paddingTop: 0 }}>
+                  <h3 className="holding-name" data-reveal>
+                    {holding.name}
+                  </h3>
+                  <p className="holding-desc" data-reveal>
+                    {holding.description}
+                  </p>
+                  <p className="holding-products" data-reveal>
+                    {holding.products}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
+
+          <section className="section" aria-labelledby="operate-heading">
+            <span className="mark eyebrow" data-reveal>
+              How we operate
+            </span>
+            <div className="section-body">
+              <h2 className="statement" id="operate-heading" data-reveal>
+                Held, not managed.
+              </h2>
+              <div className="principles" style={{ marginTop: '2.25rem' }}>
+                {PRINCIPLES.map((principle) => (
+                  <div className="principle" key={principle.title} data-reveal>
+                    <h3>{principle.title}</h3>
+                    <p>{principle.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="feat-text">
-              <p className="meta">
-                {featured.category} · {featured.date}
-              </p>
-              <p>{featured.excerpt}</p>
-              <span className="alink clay" style={{ fontSize: 15 }}>
-                Read the full story <Chevron />
-              </span>
+          </section>
+
+          <section className="section letter" aria-label="From the chairman">
+            <span className="mark eyebrow" data-reveal>
+              From the chairman
+            </span>
+            <div className="section-body">
+              <blockquote data-reveal>
+                “Every business we build starts with the same question: what
+                would this industry look like if it were designed today, from
+                zero, with no legacy to protect?”
+              </blockquote>
+              <cite className="eyebrow" data-reveal>
+                Saswat Ji · Founder &amp; Chairman
+              </cite>
             </div>
-          </Link>
+          </section>
 
-          <div className="sec-link rv">
-            <Link className="alink" href="/news">
-              Visit the newsroom <Chevron />
-            </Link>
-          </div>
-        </div>
-      </section>
+          <section className="section" aria-labelledby="presence-heading">
+            <span className="mark eyebrow" data-reveal>
+              Presence
+            </span>
+            <div className="section-body">
+              <h2 className="statement" id="presence-heading" data-reveal>
+                Two markets, kept in the same time.
+              </h2>
+              <div style={{ marginTop: '2.25rem' }} data-reveal>
+                <Clocks />
+              </div>
+              <p className="clocks-note prose" data-reveal>
+                Nine and a half hours apart. The same standard.
+              </p>
+            </div>
+          </section>
 
-      {/* ABOUT THE COMPANY */}
-      <section className="home-sec band" id="about">
-        <div className="wrap">
-          <div className="sec-c rv">
-            <p className="eyebrow">About the company</p>
-            <h2 className="statement">
-              A company of <em>companies.</em>
-            </h2>
-            <p className="st-sub">
-              Every business here was architected internally — its technology, its design language,
-              its thesis — and each is measured in decades, not quarters.
-            </p>
-          </div>
-
-          <div className="dir rv" style={{ marginTop: 60 }}>
-            {businesses.map((b, i) => (
-              <Link
-                key={b.slug}
-                href={`/subsidiaries/${b.slug}`}
-                className="dir-row rv"
-                style={{ transitionDelay: `${i * 0.05}s` }}
+          <section className="section" aria-labelledby="door-heading">
+            <span className="mark eyebrow" data-reveal>
+              Acquisitions
+            </span>
+            <div className="section-body">
+              <h2 className="statement" id="door-heading" data-reveal>
+                Built something that deserves decades?
+              </h2>
+              <p className="prose" style={{ marginTop: '1.1rem' }} data-reveal>
+                We acquire and operate companies we intend to keep. If yours is
+                one of them, write to us.
+              </p>
+              <a
+                className="door-link"
+                href="mailto:contact@jienterprise.org"
+                data-reveal
               >
-                <span className="t">{b.name}</span>
-                <span className="d">{b.sector}</span>
-                <span className="ann-arrow">
-                  <Chevron />
-                </span>
-              </Link>
-            ))}
-          </div>
+                contact@jienterprise.org
+              </a>
+            </div>
+          </section>
+        </main>
 
-          <p className="st-caption rv">Four operating companies · Two continents</p>
-
-          <div className="sec-link rv">
-            <Link className="alink" href="/about">
-              Our story <Chevron />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FROM THE FOUNDER */}
-      <section className="founder-sec" id="leadership">
-        <div className="wrap">
-          <p className="chair-eyebrow rv" style={{ marginBottom: 0 }}>
-            From the founder
-          </p>
-          <blockquote className="fq rv" style={{ transitionDelay: '.08s' }}>
-            “{chairmanLetter.quote}”
-          </blockquote>
-          <p className="fq-name rv" style={{ transitionDelay: '.16s' }}>
-            {founder.name}
-          </p>
-          <p className="fq-role rv" style={{ transitionDelay: '.16s' }}>
-            {founder.role}, Ji Enterprise
-          </p>
-          <div className="sec-link rv" style={{ transitionDelay: '.24s' }}>
-            <Link className="alink clay" href="/about">
-              Read the full letter <Chevron />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* POLICY & GOVERNANCE */}
-      <section className="home-sec" id="policy">
-        <div className="wrap">
-          <div className="sec-c rv">
-            <p className="eyebrow">Policy &amp; governance</p>
-            <h2 className="statement">
-              Held to it, <em>in writing.</em>
-            </h2>
-            <p className="st-sub">
-              How we treat your data, your trust, and our own accountability — the standard every
-              Ji Enterprise company operates under.
-            </p>
-          </div>
-
-          <div className="dir rv" style={{ marginTop: 60 }}>
-            {policyDoors.map((p, i) => (
-              <Link
-                key={p.title}
-                href={p.href}
-                className="dir-row rv"
-                style={{ transitionDelay: `${i * 0.05}s` }}
-              >
-                <span className="t">{p.title}</span>
-                <span className="d">{p.desc}</span>
-                <span className="ann-arrow">
-                  <Chevron />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <p className="st-caption rv">
-            Also on file: <Link href="/legal/cookie-policy">Cookie Policy</Link> ·{' '}
-            <Link href="/legal/disclaimer">Disclaimer</Link>
-          </p>
-        </div>
-      </section>
-
-      {/* CLOSING */}
-      <section className="closing" id="investors">
-        <div className="glow" />
-        <div className="rv">
-          <h2>
-            We don’t enter markets.
-            <br />
-            <em>We build them.</em>
-          </h2>
-          <p className="mark">Ji Enterprise</p>
-          <p className="loc">New York to New Delhi.</p>
-          <Link className="pill dark" href="/contact" style={{ position: 'relative' }}>
-            Get in touch
-          </Link>
-        </div>
-      </section>
+        <footer className="footer">
+          <span className="wordmark">
+            Ji Enterprise<span className="seal">.</span>
+          </span>
+          <span className="eyebrow">
+            <a href="mailto:contact@jienterprise.org">
+              contact@jienterprise.org
+            </a>
+          </span>
+          <span className="eyebrow">© 2026 · New York — New Delhi</span>
+        </footer>
+      </div>
     </>
   );
 }
