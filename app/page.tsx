@@ -7,7 +7,7 @@ const COMPANIES = [
     ghost: 'O',
     dark: true,
     description:
-      'Navigation, email, browsing, payments, and commerce — five everyday products rebuilt from first principles, on one shared engine.',
+      'Navigation, email, browsing, payments, and commerce — five everyday products built on one shared engine.',
     products: 'OMap · OMail · OSurf · OPay · OShopping',
   },
   {
@@ -16,7 +16,7 @@ const COMPANIES = [
     ghost: 'A',
     dark: false,
     description:
-      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for the hundreds of millions the formal system has never seen.',
+      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for people without formal credit histories.',
     products: 'AGQUANT · Terminal · Research · PRAMANIK',
   },
   {
@@ -25,7 +25,7 @@ const COMPANIES = [
     ghost: 'J',
     dark: false,
     description:
-      'Institutional learning infrastructure and digital delivery at national scale — governance first, apps second.',
+      'Institutional learning infrastructure and digital delivery at national scale.',
     products: 'Academy · Tutoring Marketplace',
   },
   {
@@ -34,7 +34,7 @@ const COMPANIES = [
     ghost: 'F',
     dark: true,
     description:
-      'Long-horizon research and frontier technology, built with and for government, measured in decades.',
+      'Long-horizon research and frontier technology, developed with government partners.',
     products: 'Applied Research · Government Programs · Advanced Systems',
   },
 ];
@@ -55,8 +55,8 @@ const PRINCIPLES = [
     text: 'Progress is measured in industries reshaped, not earnings cycles.',
   },
   {
-    title: 'One bar, everywhere.',
-    text: 'Consumer apps, trading systems, classrooms, or government programs — the same standard of craft.',
+    title: 'One standard, everywhere.',
+    text: 'Consumer apps, trading systems, classrooms, and government programs are built to the same standard.',
   },
 ];
 
@@ -71,26 +71,26 @@ const RESEARCH = [
   },
   {
     title: 'PRAMANIK credit infrastructure',
-    text: 'Income-verification APIs that turn consented financial data into the primitive every credit decision begins with.',
+    text: 'Income-verification APIs built on consented financial data, for lenders serving first-time borrowers.',
   },
   {
     title: 'Long-horizon programs',
-    text: 'FoxMon Industries carries public research from first study to working capability — on a ten-year clock.',
+    text: 'FoxMon Industries carries public research programs from first study to working capability.',
   },
 ];
 
 const IMPACT = [
   {
     title: 'Access to education',
-    text: 'Ji School builds governed learning infrastructure so good teaching reliably reaches every student — at national scale.',
+    text: 'Ji School builds learning infrastructure designed to reach every student, at national scale.',
   },
   {
     title: 'Financial inclusion',
-    text: 'PRAMANIK extends credit visibility to the hundreds of millions of people the formal financial system has never seen.',
+    text: 'PRAMANIK extends credit visibility to people without access to the formal financial system.',
   },
   {
     title: 'Research in the public interest',
-    text: 'FoxMon Industries commits to public problems that outlast any single budget cycle.',
+    text: 'FoxMon Industries takes on long-term research problems in the public interest.',
   },
 ];
 
@@ -153,13 +153,12 @@ export default function Home() {
       <main>
         <header className="shell hero">
           <h1 data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
-            We hold companies to a{' '}
-            <span className="accent">longer&nbsp;clock</span>.
+            We build, acquire, and hold companies for the{' '}
+            <span className="accent">long&nbsp;term</span>.
           </h1>
           <p className="lede" data-rise style={{ '--rise-delay': '140ms' } as React.CSSProperties}>
-            Ji Enterprise is a parent company. We build, acquire, and operate
-            businesses across technology, finance, education, and public
-            research — then give them the one thing markets rarely allow: time.
+            Ji Enterprise is a parent company operating businesses across
+            technology, finance, education, and public research.
           </p>
           <a
             className="hero-cue"
@@ -178,12 +177,11 @@ export default function Home() {
               About Ji Enterprise
             </span>
             <h2 id="about-heading" data-reveal>
-              A permanent home for ambitious companies.
+              Who we are
             </h2>
             <p className="lede" data-reveal>
-              We build companies from zero, acquire ones we intend to keep, and
-              operate them all to one standard. No exits, no flips — a parent
-              in the literal sense.
+              We build companies from zero, acquire companies we intend to
+              keep, and operate every one of them to the same standard.
             </p>
           </div>
           <div className="cards">
@@ -211,11 +209,11 @@ export default function Home() {
               Divisions &amp; brands
             </span>
             <h2 id="divisions-heading" data-reveal>
-              Four divisions. One standard.
+              Our divisions
             </h2>
             <p className="lede" data-reveal>
-              Every company in the group is held to the same bar — whether it
-              serves a commuter, a trading desk, a classroom, or a government.
+              Four companies across four sectors: consumer technology,
+              financial services, education, and government research.
             </p>
           </div>
           <div className="tiles">
@@ -235,11 +233,11 @@ export default function Home() {
               Innovation &amp; research
             </span>
             <h2 id="innovation-heading" data-reveal>
-              Built in-house, from zero.
+              Built in-house
             </h2>
             <p className="lede" data-reveal>
-              The group runs on proprietary systems designed inside its own
-              walls — engines, desks, and infrastructure no one else ships.
+              The group runs on systems designed and built inside its own
+              companies — engines, trading systems, and infrastructure.
             </p>
           </div>
           <div className="cards cards--four">
@@ -259,11 +257,11 @@ export default function Home() {
               Sustainability &amp; philanthropy
             </span>
             <h2 id="sustainability-heading" data-reveal>
-              The payoff is public.
+              Building for the public
             </h2>
             <p className="lede" data-reveal>
-              Our giving is structural, not seasonal: the group points its
-              companies at problems whose returns accrue to everyone.
+              Three of the group&rsquo;s long-term commitments: access to
+              education, financial inclusion, and public-interest research.
             </p>
           </div>
           <div className="cards">
@@ -281,12 +279,12 @@ export default function Home() {
           <div className="cta cta--dark" data-reveal>
             <span className="eyebrow">Investor relations</span>
             <h2 id="investors-heading" style={{ marginTop: '0.75rem' }}>
-              Privately held, deliberately.
+              Privately held
             </h2>
             <p className="lede">
               Ji Enterprise is a private company and does not trade on public
-              markets. Institutional and partnership inquiries are read by the
-              office of the chairman.
+              markets. For institutional or partnership inquiries, write to
+              us.
             </p>
             <a
               className="button"
@@ -315,9 +313,9 @@ export default function Home() {
             <div className="leader-name">Saswat Ji</div>
             <div className="leader-role">Founder &amp; Chairman</div>
             <p className="leader-bio">
-              Saswat Ji founded Ji Enterprise as a different kind of holding
-              company — one that architects its businesses internally, owns the
-              full stack, and holds what it builds for decades.
+              Saswat Ji founded Ji Enterprise and oversees its four divisions.
+              Each business in the group was architected internally — its
+              technology, its design, and its market thesis.
             </p>
           </div>
 
@@ -331,11 +329,10 @@ export default function Home() {
 
           <div className="cta" data-reveal style={{ marginTop: 'clamp(2.5rem, 6vw, 4rem)' }}>
             <h2 style={{ fontSize: 'clamp(1.75rem, 3.4vw, 2.5rem)' }}>
-              Write to us.
+              Write to us
             </h2>
             <p className="lede">
-              Acquisitions, partnerships, press, or anything that deserves
-              decades — one address, read carefully.
+              For acquisitions, partnerships, or press inquiries:
             </p>
             <a className="button" href="mailto:contact@jienterprise.org">
               contact@jienterprise.org
