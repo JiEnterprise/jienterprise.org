@@ -171,6 +171,29 @@ a {
   text-underline-offset: 4px;
 }
 
+/* ── Page hero (subpage header) ────────────────────────────── */
+
+.page-hero {
+  text-align: center;
+  padding-block: clamp(3.5rem, 9vh, 6.5rem) clamp(1rem, 3vh, 2rem);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 15em;
+  margin-inline: auto;
+  margin-top: 0.85rem;
+  text-wrap: balance;
+}
+
+.page-hero .lede {
+  margin: 1.25rem auto 0;
+  max-width: 38em;
+}
+
 /* ── Section headers (centered, Google-style) ──────────────── */
 
 .section {
@@ -346,6 +369,20 @@ a {
 
 .cards--four {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: var(--claret);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ── Leadership ────────────────────────────────────────────── */

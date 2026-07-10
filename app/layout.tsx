@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Figtree } from 'next/font/google';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import Kinetics from '@/components/Kinetics';
 import './globals.css';
 
 const sans = Figtree({
@@ -35,7 +38,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sans.variable}>
-      <body>{children}</body>
+      <body>
+        <Kinetics />
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

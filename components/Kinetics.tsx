@@ -1,14 +1,18 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 /**
  * Page behaviors that need scroll state:
  * — reveals [data-reveal] elements the first time they enter the viewport
  * — gives the sticky nav its hairline once the page is scrolled
+ * Re-runs on route changes so newly mounted pages get observed too.
  * Renders nothing. Respects prefers-reduced-motion (CSS shows everything).
  */
 export default function Kinetics() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const reduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
@@ -45,7 +49,7 @@ export default function Kinetics() {
       window.removeEventListener('scroll', onScroll);
       io?.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
