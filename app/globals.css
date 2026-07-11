@@ -19,8 +19,8 @@
   --sans: var(--font-sans), -apple-system, "SF Pro Display", "Helvetica Neue",
     Arial, sans-serif;
 
-  --radius-tile: 28px;
-  --radius-card: 20px;
+  --radius-tile: 24px;
+  --radius-card: 16px;
 
   color-scheme: light;
 }
@@ -81,7 +81,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.25rem;
+  height: 3.5rem;
 }
 
 .wordmark {
@@ -122,11 +122,11 @@ a {
 
 .eyebrow {
   display: block;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--claret);
+  color: var(--gray);
 }
 
 .lede {
@@ -179,8 +179,7 @@ a {
 /* ── Page hero (subpage header) ────────────────────────────── */
 
 .page-hero {
-  text-align: center;
-  padding-block: clamp(3.5rem, 9vh, 6.5rem) clamp(1rem, 3vh, 2rem);
+  padding-block: clamp(3.75rem, 10vh, 7rem) clamp(1.25rem, 3vh, 2rem);
 }
 
 .page-hero h1 {
@@ -189,53 +188,54 @@ a {
   line-height: 1.05;
   letter-spacing: -0.03em;
   max-width: 15em;
-  margin-inline: auto;
   margin-top: 0.85rem;
   text-wrap: balance;
 }
 
 .page-hero .lede {
-  margin: 1.25rem auto 0;
+  margin: 1.25rem 0 0;
   max-width: 38em;
 }
 
-/* ── Section headers (centered, Google-style) ──────────────── */
+/* ── Section structure (editorial, ruled) ──────────────────── */
 
 .section {
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  padding-block: clamp(3.25rem, 8vw, 6rem);
+}
+
+main .section + .section {
+  border-top: 1px solid var(--hairline);
 }
 
 .section-head {
-  text-align: center;
-  max-width: 46em;
-  margin-inline: auto;
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
 }
 
 .section-head h2 {
-  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
-  margin-top: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 0.85rem;
   text-wrap: balance;
 }
 
 .section-head .lede {
-  margin: 1.1rem auto 0;
+  margin: 1rem 0 0;
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
 }
 
 /* ── Company tiles (Apple billboard stack) ─────────────────── */
 
 .tiles {
   display: grid;
-  gap: clamp(0.875rem, 2vw, 1.25rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .tile-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.875rem, 2vw, 1.25rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .tile {
@@ -258,7 +258,7 @@ a {
 }
 
 .tile--dark .eyebrow {
-  color: var(--rose);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .tile--dark .tile-desc,
@@ -311,18 +311,13 @@ a {
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.05em;
-  color: rgba(16, 16, 16, 0.045);
+  color: rgba(16, 16, 16, 0.035);
   pointer-events: none;
   user-select: none;
 }
 
 .tile--dark .tile-ghost {
-  color: rgba(255, 255, 255, 0.05);
-}
-
-.section-foot {
-  text-align: center;
-  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  color: rgba(255, 255, 255, 0.04);
 }
 
 /* ── Numbers row ───────────────────────────────────────────── */
@@ -331,17 +326,14 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.5rem, 4vw, 3rem);
-  text-align: center;
-  max-width: 56rem;
-  margin-inline: auto;
 }
 
 .number-value {
-  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: var(--claret);
+  color: var(--ink);
 }
 
 .number-label {
@@ -355,7 +347,7 @@ a {
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.875rem, 2vw, 1.25rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .card {
@@ -398,12 +390,11 @@ a {
 .card--link {
   display: block;
   text-decoration: none;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: background-color 180ms ease;
 }
 
 .card--link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09);
+  background: #eeedec;
 }
 
 .card--link:hover .card-link {
@@ -435,57 +426,53 @@ a {
 
 .leader {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 40em;
-  margin-inline: auto;
+  align-items: flex-start;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 46em;
 }
 
 .leader-avatar {
-  width: 76px;
-  height: 76px;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
   border-radius: 999px;
-  background: var(--claret);
+  background: var(--ink);
   color: #fff;
-  font-size: 1.875rem;
+  font-size: 1.75rem;
   font-weight: 700;
   display: grid;
   place-items: center;
 }
 
 .leader-name {
-  margin-top: 1.1rem;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .leader-role {
-  margin-top: 0.2rem;
-  color: var(--claret);
+  margin-top: 0.15rem;
+  color: var(--gray);
   font-weight: 600;
   font-size: 0.9375rem;
 }
 
 .leader-bio {
-  margin-top: 1rem;
+  margin-top: 0.9rem;
   color: var(--gray);
 }
 
 /* ── Quote ─────────────────────────────────────────────────── */
 
 .quote {
-  text-align: center;
-  max-width: 44em;
-  margin-inline: auto;
+  max-width: 50em;
 }
 
 .quote blockquote {
-  font-size: clamp(1.5rem, 3vw, 2.375rem);
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1.35;
   text-wrap: balance;
 }
 
@@ -497,26 +484,26 @@ a {
   font-size: 1rem;
 }
 
-/* ── CTA ───────────────────────────────────────────────────── */
+/* ── CTA (quiet notice band) ───────────────────────────────── */
 
 .cta {
-  text-align: center;
   background: var(--surface);
   border-radius: var(--radius-tile);
-  padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(2.5rem, 6vw, 4.25rem) clamp(1.75rem, 5vw, 4rem);
 }
 
 .cta h2 {
-  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
 .cta .lede {
-  margin: 1.1rem auto 0;
-  max-width: 34em;
+  margin: 0.9rem 0 0;
+  max-width: 38em;
+  font-size: 1.0625rem;
 }
 
 .cta--dark {
@@ -529,7 +516,7 @@ a {
 }
 
 .cta--dark .eyebrow {
-  color: var(--rose);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .cta--slim {
@@ -538,20 +525,30 @@ a {
 
 .button {
   display: inline-block;
-  margin-top: 2rem;
-  background: var(--claret);
+  margin-top: 1.75rem;
+  background: var(--ink);
   color: #fff;
   font-weight: 600;
-  font-size: 1.0625rem;
-  padding: 0.9rem 1.9rem;
-  border-radius: 999px;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
   text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: background-color 160ms ease;
 }
 
 .button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(125, 31, 51, 0.28);
+  background: #2c2c2c;
+}
+
+.tile--dark .button,
+.cta--dark .button {
+  background: #fff;
+  color: var(--ink);
+}
+
+.tile--dark .button:hover,
+.cta--dark .button:hover {
+  background: #e9e9e7;
 }
 
 /* ── Footer (Apple-style gray band with link columns) ──────── */

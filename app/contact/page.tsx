@@ -51,13 +51,15 @@ export default function ContactPage() {
           <div className="leader-avatar" aria-hidden="true">
             S
           </div>
-          <div className="leader-name">Saswat Ji</div>
-          <div className="leader-role">Founder &amp; Chairman</div>
-          <p className="leader-bio">
-            Saswat Ji founded Ji Enterprise and oversees its four divisions.
-            Each business in the group was architected internally — its
-            technology, its design, and its market thesis.
-          </p>
+          <div>
+            <div className="leader-name">Saswat Ji</div>
+            <div className="leader-role">Founder &amp; Chairman</div>
+            <p className="leader-bio">
+              Saswat Ji founded Ji Enterprise and oversees its four divisions.
+              Each business in the group was architected internally — its
+              technology, its design, and its market thesis.
+            </p>
+          </div>
         </div>
       </section>
 

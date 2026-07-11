@@ -88,9 +88,7 @@ export default function Home() {
       <section className="shell section" aria-labelledby="subscribe-heading">
         <div className="cta cta--dark cta--slim" data-reveal>
           <h2 id="subscribe-heading">Get the latest from Ji Enterprise</h2>
-          <p className="lede">
-            Product announcements and company news, straight from the group.
-          </p>
+          <p className="lede">Product announcements and company news.</p>
           <a
             className="button"
             href={`mailto:${CONTACT_EMAIL}?subject=Subscribe`}
