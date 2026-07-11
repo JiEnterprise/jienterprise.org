@@ -112,3 +112,46 @@ export const CHAIRMAN_QUOTE =
   '“Every business we build starts with the same question: what would this industry look like if it were designed today, from zero, with no legacy to protect?”';
 
 export const CONTACT_EMAIL = 'contact@jienterprise.org';
+
+/** Featured announcement shown as the home hero. */
+export const FEATURED = {
+  eyebrow: 'From Oplo Cloud',
+  title: 'OMap is entering private testing',
+  text: 'Built on the Roxan routing engine, OMap scores every route for seconds saved — not theoretical distance.',
+  href: '/divisions#oplo-cloud',
+  cta: 'Learn more',
+  ghost: 'O',
+};
+
+export const NEWS = [
+  {
+    tag: 'Launch',
+    date: 'May 28, 2026',
+    title: 'PRAMANIK: income verification for first-time borrowers',
+    text: 'AurumGlobal announces PRAMANIK, a set of APIs that verify income from consented financial data — the first step in credit for people without credit histories.',
+    href: '/divisions#aurumglobal',
+  },
+  {
+    tag: 'Milestone',
+    date: 'May 12, 2026',
+    title: 'AGQUANT completes a full quarter of autonomous trading',
+    text: 'Four strategies selected, executed, and risk-managed end to end, with no manual intervention.',
+    href: '/innovation',
+  },
+];
+
+/** Outward-facing explore cards for the home page. */
+export const EXPLORE_HOME = [
+  {
+    href: '/divisions',
+    text: 'Explore the group’s products across navigation, payments, trading, and learning',
+  },
+  {
+    href: '/innovation',
+    text: 'Learn about the systems built inside the group — engines, desks, and infrastructure',
+  },
+  {
+    href: '/sustainability',
+    text: 'See the group’s long-term commitments to education, inclusion, and public research',
+  },
+];

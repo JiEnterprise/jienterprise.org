@@ -1,137 +1,102 @@
 import Link from 'next/link';
-import Tile from '@/components/Tile';
-import { COMPANIES, NUMBERS } from '@/lib/content';
-
-const DOORWAYS = [
-  {
-    href: '/about',
-    eyebrow: 'About Ji Enterprise',
-    title: 'Who we are',
-    text: 'A parent company that builds, acquires, and operates for the long term.',
-  },
-  {
-    href: '/innovation',
-    eyebrow: 'Innovation & research',
-    title: 'Built in-house',
-    text: 'Engines, trading systems, and infrastructure designed inside the group.',
-  },
-  {
-    href: '/sustainability',
-    eyebrow: 'Sustainability & philanthropy',
-    title: 'Building for the public',
-    text: 'Education access, financial inclusion, and public-interest research.',
-  },
-];
+import {
+  CONTACT_EMAIL,
+  EXPLORE_HOME,
+  FEATURED,
+  NEWS,
+} from '@/lib/content';
 
 export default function Home() {
   return (
     <main>
-      <header className="shell hero">
-        <h1 data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
-          We build, acquire, and hold companies for the{' '}
-          <span className="accent">long&nbsp;term</span>.
-        </h1>
-        <p className="lede" data-rise style={{ '--rise-delay': '140ms' } as React.CSSProperties}>
-          Ji Enterprise is a parent company operating businesses across
-          technology, finance, education, and public research.
-        </p>
-        <Link
-          className="hero-cue"
-          href="/about"
-          data-rise
-          style={{ '--rise-delay': '280ms' } as React.CSSProperties}
-        >
-          Learn about Ji Enterprise&nbsp;→
-        </Link>
-      </header>
-
-      <section className="shell section" aria-labelledby="divisions-heading">
-        <div className="section-head">
-          <span className="eyebrow" data-reveal>
-            Divisions &amp; brands
+      {/* Featured announcement — the hero is a story, not a statement */}
+      <section className="shell section" aria-labelledby="featured-heading">
+        <article className="tile tile--dark" data-rise>
+          <span className="tile-ghost" aria-hidden="true">
+            {FEATURED.ghost}
           </span>
-          <h2 id="divisions-heading" data-reveal>
-            Our divisions
-          </h2>
-          <p className="lede" data-reveal>
-            Four companies across four sectors: consumer technology, financial
-            services, education, and government research.
-          </p>
-        </div>
-        <div className="tiles">
-          <Tile company={COMPANIES[0]} />
-          <Tile company={COMPANIES[1]} />
-          <div className="tile-row">
-            <Tile company={COMPANIES[2]} half />
-            <Tile company={COMPANIES[3]} half />
-          </div>
-        </div>
-        <div className="section-foot" data-reveal>
-          <Link className="hero-cue" href="/divisions">
-            Explore the divisions&nbsp;→
+          <span className="eyebrow">{FEATURED.eyebrow}</span>
+          <h1 className="tile-name" id="featured-heading">
+            {FEATURED.title}
+          </h1>
+          <p className="tile-desc">{FEATURED.text}</p>
+          <Link className="button" href={FEATURED.href}>
+            {FEATURED.cta}
           </Link>
-        </div>
+        </article>
       </section>
 
-      <section className="shell section" aria-label="Ji Enterprise by the numbers">
-        <div className="numbers">
-          {NUMBERS.map((item) => (
-            <div key={item.label} data-reveal>
-              <div className="number-value">{item.value}</div>
-              <div className="number-label">{item.label}</div>
-            </div>
+      {/* Explore row */}
+      <section className="shell section" aria-label="Explore">
+        <div className="cards">
+          {EXPLORE_HOME.map((item) => (
+            <Link
+              className="card card--link"
+              href={item.href}
+              key={item.href}
+              data-reveal
+            >
+              <h3 className="card-explore">{item.text}</h3>
+              <span className="card-link">Explore →</span>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="shell section" aria-labelledby="group-heading">
+      {/* News */}
+      <section className="shell section" aria-labelledby="news-heading">
         <div className="section-head">
-          <h2 id="group-heading" data-reveal>
-            Inside the group
+          <h2 id="news-heading" data-reveal>
+            The latest
           </h2>
         </div>
-        <div className="cards">
-          {DOORWAYS.map((door) => (
+        <div className="cards cards--four">
+          {NEWS.map((story) => (
             <Link
               className="card card--link"
-              href={door.href}
-              key={door.href}
+              href={story.href}
+              key={story.title}
               data-reveal
             >
-              <span className="eyebrow">{door.eyebrow}</span>
-              <h3 style={{ marginTop: '0.6rem' }}>{door.title}</h3>
-              <p>{door.text}</p>
+              <p className="card-meta">
+                <span className="card-tag">{story.tag}</span>
+                <span>{story.date}</span>
+              </p>
+              <h3>{story.title}</h3>
+              <p>{story.text}</p>
               <span className="card-link">Learn more →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="shell section" aria-labelledby="home-investors-heading">
-        <div className="cta cta--dark cta--slim" data-reveal>
-          <span className="eyebrow">Investor relations</span>
-          <h2 id="home-investors-heading" style={{ marginTop: '0.75rem' }}>
-            Privately held
-          </h2>
+      {/* The parent company */}
+      <section className="shell section" aria-labelledby="parent-heading">
+        <div className="cta cta--slim" data-reveal>
+          <h2 id="parent-heading">The parent company</h2>
           <p className="lede">
-            Ji Enterprise is a private company and does not trade on public
-            markets.
+            Learn how Ji Enterprise is structured — divisions, leadership, and
+            how the group operates.
           </p>
-          <Link className="button" href="/investors">
-            Investor relations
+          <Link className="button" href="/about">
+            About Ji Enterprise
           </Link>
         </div>
       </section>
 
-      <section className="shell section" aria-labelledby="home-contact-heading">
-        <div className="cta" data-reveal>
-          <h2 id="home-contact-heading">Get in touch</h2>
+      {/* Newsletter */}
+      <section className="shell section" aria-labelledby="subscribe-heading">
+        <div className="cta cta--dark cta--slim" data-reveal>
+          <h2 id="subscribe-heading">Get the latest from Ji Enterprise</h2>
           <p className="lede">
-            For acquisitions, partnerships, or press inquiries.
+            Product announcements and company news, straight from the group.
           </p>
-          <Link className="button" href="/contact">
-            Contact us
-          </Link>
+          <a
+            className="button"
+            href={`mailto:${CONTACT_EMAIL}?subject=Subscribe`}
+          >
+            Subscribe
+          </a>
         </div>
       </section>
     </main>

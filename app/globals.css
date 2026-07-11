@@ -411,6 +411,26 @@ a {
   text-underline-offset: 4px;
 }
 
+.card-meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--gray);
+  margin-bottom: 0.7rem;
+}
+
+.card-tag {
+  color: var(--claret);
+  font-weight: 600;
+}
+
+.card-explore {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
 /* ── Leadership ────────────────────────────────────────────── */
 
 .leader {
