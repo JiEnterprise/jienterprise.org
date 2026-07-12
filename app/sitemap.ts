@@ -5,10 +5,9 @@ export const dynamic = 'force-static';
 const ROUTES = [
   '',
   'about',
-  'divisions',
-  'innovation',
-  'sustainability',
-  'investors',
+  'group',
+  'announcements',
+  'shareholders',
   'contact',
 ];
 

@@ -1,157 +1,143 @@
-/* Shared content for all Ji Enterprise pages. */
+/* Ji Enterprises — Meridian content model.
+   A privately held, diversified holding company headquartered in New York. */
 
-export interface Company {
-  slug: string;
-  sector: string;
+export const CONTACT_EMAIL = 'contact@jienterprise.org';
+
+export const MAIL = {
+  ir: `mailto:${CONTACT_EMAIL}?subject=Investor%20relations`,
+  general: `mailto:${CONTACT_EMAIL}`,
+  press: `mailto:${CONTACT_EMAIL}?subject=Press`,
+};
+
+export interface RegisterEntry {
+  ref: string;
   name: string;
-  ghost: string;
-  dark: boolean;
-  description: string;
-  products: string;
+  desc: string;
+  sector: string;
+  relationship: string;
+  jurisdiction: string;
 }
 
-export const COMPANIES: Company[] = [
+export const REGISTER: RegisterEntry[] = [
   {
-    slug: 'oplo-cloud',
-    sector: 'Consumer Technology',
-    name: 'Oplo Cloud',
-    ghost: 'O',
-    dark: true,
-    description:
-      'Navigation, email, browsing, payments, and commerce — five everyday products built on one shared engine.',
-    products: 'OMap · OMail · OSurf · OPay · OShopping',
+    ref: 'JI—01',
+    name: 'Oplo Cloud Inc.',
+    desc: 'Consumer software & cloud services',
+    sector: 'Technology',
+    relationship: 'Wholly owned subsidiary',
+    jurisdiction: 'Delaware, USA',
   },
   {
-    slug: 'aurumglobal',
-    sector: 'Financial Services',
+    ref: 'JI—02',
     name: 'AurumGlobal',
-    ghost: 'A',
-    dark: false,
-    description:
-      'An autonomous quantitative trading desk, market analytics, and credit infrastructure for people without formal credit histories.',
-    products: 'AGQUANT · Terminal · Research · PRAMANIK',
+    desc: 'Markets research & asset intelligence',
+    sector: 'Financial services',
+    relationship: 'Wholly owned subsidiary',
+    jurisdiction: 'New York, USA',
   },
   {
-    slug: 'ji-school',
+    ref: 'JI—03',
+    name: 'Ji Schools',
+    desc: 'Curriculum, examination & study programs',
     sector: 'Education',
-    name: 'Ji School',
-    ghost: 'J',
-    dark: false,
-    description:
-      'Institutional learning infrastructure and digital delivery at national scale.',
-    products: 'Academy · Tutoring Marketplace',
+    relationship: 'Nonprofit affiliate',
+    jurisdiction: 'New York, USA',
   },
   {
-    slug: 'foxmon-industries',
-    sector: 'Government & Advanced Research',
-    name: 'FoxMon Industries',
-    ghost: 'F',
-    dark: true,
-    description:
-      'Long-horizon research and frontier technology, developed with government partners.',
-    products: 'Applied Research · Government Programs · Advanced Systems',
+    ref: 'JI—04',
+    name: 'JIERD',
+    desc: 'Research & early development',
+    sector: 'Research & development',
+    relationship: 'Internal division',
+    jurisdiction: 'New York, USA',
   },
 ];
 
-export const NUMBERS = [
-  { value: '4', label: 'Operating divisions' },
-  { value: '4', label: 'Sectors' },
-  { value: '14', label: 'Products in development' },
+export interface Announcement {
+  date: string;
+  ref: string;
+  title: string;
+  cat: string;
+  isNew?: boolean;
+  href: string;
+}
+
+export const ANNOUNCEMENTS: Announcement[] = [
+  {
+    date: '08 JUL 2026',
+    ref: 'JI/2026/07',
+    title: 'Q2 2026 group update published to shareholders.',
+    cat: 'New',
+    isNew: true,
+    href: '/shareholders',
+  },
+  {
+    date: '14 MAY 2026',
+    ref: 'JI/2026/05',
+    title: 'Ji Schools releases the 2026–27 curriculum library.',
+    cat: 'Subsidiary',
+    href: '/announcements',
+  },
+  {
+    date: '02 APR 2026',
+    ref: 'JI/2026/04',
+    title: 'Oplo Cloud Inc. incorporated in Delaware.',
+    cat: 'Corporate',
+    href: '/announcements',
+  },
+  {
+    date: '09 FEB 2026',
+    ref: 'JI/2026/02',
+    title: 'Group adopts a unified brand system across all companies.',
+    cat: 'Governance',
+    href: '/announcements',
+  },
+  {
+    date: '12 JAN 2026',
+    ref: 'JI/2026/01',
+    title: "JIERD designated as the group's research division.",
+    cat: 'Governance',
+    href: '/announcements',
+  },
+];
+
+export const SH_FEATURED = {
+  metaLive: 'Latest',
+  metaKind: 'Update',
+  metaWhen: 'July 2026',
+  title: 'Q2 2026 group update',
+  text: 'Operations advanced across all four companies during the quarter. Oplo Cloud completed its incorporation and continued development of its consumer software line; AurumGlobal maintained its research program; Ji Schools published a full curriculum cycle; JIERD progressed early-stage work.',
+};
+
+export const SH_DOCS = [
+  { title: 'Q1 2026 group update', kind: 'Update', when: 'Apr 2026' },
+  { title: 'Letter to shareholders — FY2025', kind: 'Letter', when: 'Jan 2026' },
+  { title: 'Letter to shareholders — FY2024', kind: 'Letter', when: 'Jan 2025' },
+];
+
+export const FACTS = [
+  { k: 'Legal form', v: 'Holding company', sub: 'Privately held' },
+  { k: 'Founded', v: '2024' },
+  { k: 'Headquarters', v: 'New York, USA' },
+  { k: 'Group companies', v: '4' },
+  { k: 'Sectors', v: 'Technology · Finance', sub: 'Education · Research' },
+  { k: 'Founder & Chairman', v: 'S. Ji' },
 ];
 
 export const PRINCIPLES = [
   {
-    title: 'Own the full stack.',
-    text: 'From routing engines to the last pixel, the core is never outsourced.',
+    num: '01',
+    lead: 'Acquire or found',
+    rest: ' with conviction, in sectors the group understands.',
   },
   {
-    title: 'Decades, not quarters.',
-    text: 'Progress is measured in industries reshaped, not earnings cycles.',
+    num: '02',
+    lead: 'Build',
+    rest: ' for decades — product and people over short-term results.',
   },
   {
-    title: 'One standard, everywhere.',
-    text: 'Consumer apps, trading systems, classrooms, and government programs are built to the same standard.',
-  },
-];
-
-export const RESEARCH = [
-  {
-    title: 'Roxan routing engine',
-    text: 'The engine under OMap scores every route for real speed — seconds saved, not theoretical distance.',
-  },
-  {
-    title: 'AGQUANT autonomous desk',
-    text: 'A quantitative trading desk that selects, executes, and risk-manages its strategies with no manual intervention.',
-  },
-  {
-    title: 'PRAMANIK credit infrastructure',
-    text: 'Income-verification APIs built on consented financial data, for lenders serving first-time borrowers.',
-  },
-  {
-    title: 'Long-horizon programs',
-    text: 'FoxMon Industries carries public research programs from first study to working capability.',
-  },
-];
-
-export const IMPACT = [
-  {
-    title: 'Access to education',
-    text: 'Ji School builds learning infrastructure designed to reach every student, at national scale.',
-  },
-  {
-    title: 'Financial inclusion',
-    text: 'PRAMANIK extends credit visibility to people without access to the formal financial system.',
-  },
-  {
-    title: 'Research in the public interest',
-    text: 'FoxMon Industries takes on long-term research problems in the public interest.',
-  },
-];
-
-export const CHAIRMAN_QUOTE =
-  '“Every business we build starts with the same question: what would this industry look like if it were designed today, from zero, with no legacy to protect?”';
-
-export const CONTACT_EMAIL = 'contact@jienterprise.org';
-
-/** Featured announcement shown as the home hero. */
-export const FEATURED = {
-  eyebrow: 'From Oplo Cloud',
-  title: 'OMap is entering private testing',
-  text: 'Built on the Roxan routing engine, OMap scores every route for seconds saved — not theoretical distance.',
-  href: '/divisions#oplo-cloud',
-  cta: 'Learn more',
-  ghost: 'O',
-};
-
-export const NEWS = [
-  {
-    tag: 'Launch',
-    date: 'May 28, 2026',
-    title: 'PRAMANIK: income verification for first-time borrowers',
-    text: 'AurumGlobal announces PRAMANIK, a set of APIs that verify income from consented financial data — the first step in credit for people without credit histories.',
-    href: '/divisions#aurumglobal',
-  },
-  {
-    tag: 'Milestone',
-    date: 'May 12, 2026',
-    title: 'AGQUANT completes a full quarter of autonomous trading',
-    text: 'Four strategies selected, executed, and risk-managed end to end, with no manual intervention.',
-    href: '/innovation',
-  },
-];
-
-/** Outward-facing explore cards for the home page. */
-export const EXPLORE_HOME = [
-  {
-    href: '/divisions',
-    text: 'Explore the group’s products across navigation, payments, trading, and learning',
-  },
-  {
-    href: '/innovation',
-    text: 'Learn about the systems built inside the group — engines, desks, and infrastructure',
-  },
-  {
-    href: '/sustainability',
-    text: 'See the group’s long-term commitments to education, inclusion, and public research',
+    num: '03',
+    lead: 'Hold',
+    rest: ' permanently. Ownership is the strategy, not the exit.',
   },
 ];

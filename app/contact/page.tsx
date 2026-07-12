@@ -1,83 +1,49 @@
 import type { Metadata } from 'next';
-import Explore from '@/components/Explore';
-import { CONTACT_EMAIL } from '@/lib/content';
+import { MAIL } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Contact & leadership',
+  title: 'Contact',
   description:
-    'Corporate leadership and contact routes for Ji Enterprise: general inquiries, acquisitions, investor relations, and press.',
+    'Correspondence with Ji Enterprises: investor relations, general inquiries, and press. Registered office in New York, United States.',
 };
-
-const ROUTES = [
-  {
-    title: 'General inquiries',
-    text: 'Anything that doesn’t fit the categories below.',
-    href: `mailto:${CONTACT_EMAIL}`,
-  },
-  {
-    title: 'Acquisitions',
-    text: 'For founders and owners considering a sale.',
-    href: `mailto:${CONTACT_EMAIL}?subject=Acquisitions`,
-  },
-  {
-    title: 'Investor relations',
-    text: 'Institutional and partnership inquiries.',
-    href: `mailto:${CONTACT_EMAIL}?subject=Investor%20relations`,
-  },
-  {
-    title: 'Press',
-    text: 'Media and interview requests.',
-    href: `mailto:${CONTACT_EMAIL}?subject=Press`,
-  },
-];
 
 export default function ContactPage() {
   return (
-    <main>
-      <header className="shell page-hero">
-        <span className="eyebrow" data-rise style={{ '--rise-delay': '0ms' } as React.CSSProperties}>
-          Contact &amp; corporate leadership
-        </span>
-        <h1 data-rise style={{ '--rise-delay': '120ms' } as React.CSSProperties}>
-          Get in touch
-        </h1>
-        <p className="lede" data-rise style={{ '--rise-delay': '240ms' } as React.CSSProperties}>
-          Every inquiry goes to one address and is routed by subject.
-        </p>
-      </header>
-
-      <section className="shell section" aria-label="Leadership">
-        <div className="leader" data-reveal>
-          <div className="leader-avatar" aria-hidden="true">
-            S
-          </div>
+    <main id="main">
+      <section className="section corr" id="contact">
+        <div className="wrap">
           <div>
-            <div className="leader-name">Saswat Ji</div>
-            <div className="leader-role">Founder &amp; Chairman</div>
-            <p className="leader-bio">
-              Saswat Ji founded Ji Enterprise and oversees its four divisions.
-              Each business in the group was architected internally — its
-              technology, its design, and its market thesis.
-            </p>
+            <p className="eyebrow reveal">Correspondence</p>
+            <h2 className="display reveal" data-delay="1">
+              One office. Every matter.
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section className="shell section" aria-label="Contact routes">
-        <div className="cards cards--four">
-          {ROUTES.map((route) => (
-            <div className="card" key={route.title} data-reveal>
-              <h3>{route.title}</h3>
-              <p>{route.text}</p>
-              <a className="card-link" href={route.href}>
-                {CONTACT_EMAIL}
+          <div className="reveal" data-delay="2">
+            <div className="corr-line">
+              <span className="k">Investor relations</span>
+              <a className="v" href={MAIL.ir}>
+                contact@jienterprise.org
               </a>
             </div>
-          ))}
+            <div className="corr-line">
+              <span className="k">General inquiries</span>
+              <a className="v" href={MAIL.general}>
+                contact@jienterprise.org
+              </a>
+            </div>
+            <div className="corr-line">
+              <span className="k">Press</span>
+              <a className="v" href={MAIL.press}>
+                contact@jienterprise.org
+              </a>
+            </div>
+            <div className="corr-line">
+              <span className="k">Registered office</span>
+              <span className="v-plain">New York, United States</span>
+            </div>
+          </div>
         </div>
       </section>
-
-      <Explore current="/contact" />
     </main>
   );
 }

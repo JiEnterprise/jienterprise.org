@@ -1,16 +1,22 @@
+import Link from 'next/link';
+
 export default function NotFound() {
   return (
-    <div className="shell hero">
-      <span className="eyebrow">404</span>
-      <h1 style={{ marginTop: '0.75rem' }}>
-        This page doesn&rsquo;t exist.
-      </h1>
-      <p className="lede" style={{ margin: '1.25rem auto 0' }}>
-        The page you are looking for does not exist.
-      </p>
-      <a className="hero-cue" href="/">
-        Return to Ji Enterprise →
-      </a>
-    </div>
+    <main id="main">
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow">404</p>
+            <h2 className="display">This page doesn&rsquo;t exist.</h2>
+            <p className="lede">
+              The address you requested is not on the register.
+            </p>
+          </div>
+          <Link className="btn btn-solid" href="/">
+            Return to Ji Enterprises <span className="arr">→</span>
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
